@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo的Next主题美化设置</title>
+    <url>/Hexo/2020-02-12-hero-next-theme-settings/</url>
+    <content><![CDATA[<p>Hexo主题我还是喜欢next，主要是简洁，我是初学者所以暂时做简单的改动。</p>
+<p>主要通过修改next的配置文件<strong>_config.yml</strong> 来达成。我安装的next版本是v7.7.1。</p>
+<h1 id="选择next主题的布局"><a href="#选择next主题的布局" class="headerlink" title="选择next主题的布局"></a>选择next主题的布局</h1><p>在主题配置文件中搜索Scheme</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+
+<p>我选择的是Gemini，大家可以切换选择，找到自己喜欢的布局。</p>
+<h1 id="页面菜单"><a href="#页面菜单" class="headerlink" title="页面菜单"></a>页面菜单</h1><p>next默认只有两个页面菜单，首页<strong>home</strong>和归档<strong>archives</strong>，搜索<strong>menu</strong>我们按需选择。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || home #首页</span><br><span class="line">  #about: &#x2F;about&#x2F; || user #关于</span><br><span class="line">  #tags: &#x2F;tags&#x2F; || tags #标签</span><br><span class="line">  #categories: &#x2F;categories&#x2F; || th #分类</span><br><span class="line">  archives: &#x2F;archives&#x2F; || archive #归档</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar #日程表</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap #站点地图</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat #公益404</span><br></pre></td></tr></table></figure>
+
+<p><strong>斜线//</strong>之间的文字是该页面的名称，除了<strong>归档</strong>其他的如<strong>关于</strong><code>about</code>、<strong>标签</strong><code>tags</code>和<strong>分类</strong><code>categories</code>是需要自行添加页面文件夹的。</p>
+<h2 id="生成about、tags、categories页面"><a href="#生成about、tags、categories页面" class="headerlink" title="生成about、tags、categories页面"></a>生成<strong>about</strong>、<strong>tags</strong>、<strong>categories</strong>页面</h2><p>在博客根目录下输入命令：；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>会在<strong>/source</strong>下对应生成页面文件夹和里面的<strong>index.md</strong>。对于tags和categories需要修改<em>*index.md</em></p>
+<p>内容如下：</p>
+<ul>
+<li>tags：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 分类 #页面的头部显示</span><br><span class="line">type: categories</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>categories：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 标签 #页面的头部显示</span><br><span class="line">type: tags</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加站内搜索按钮"><a href="#添加站内搜索按钮" class="headerlink" title="添加站内搜索按钮"></a>添加站内搜索按钮</h2><ul>
+<li>安装搜索插件：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在站点配置文件中添加:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#添加站内搜索按钮</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>皮肤配置文件修改</p>
+<p>搜索<strong>local_search</strong>，enable修改为<strong>true</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置网站图标”favicon-ico”"><a href="#设置网站图标”favicon-ico”" class="headerlink" title="设置网站图标”favicon.ico”"></a>设置网站图标”favicon.ico”</h2><p>找自己喜欢的ico图标文件，32x32，修改为<strong>favicon.ico</strong>。</p>
+<p>然后把图标文件放在/themes/next/source/images里面。</p>
+<p>修改next配置文件，搜索<strong>favicon</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  #原始small: &#x2F;images&#x2F;favicon-16x16-next.png</span><br><span class="line">  #原始medium: &#x2F;images&#x2F;favicon-32x32-next.png</span><br><span class="line">  medium: &#x2F;images&#x2F;favicon.ico</span><br><span class="line">  small: &#x2F;images&#x2F;favicon.ico</span><br><span class="line">  apple_touch_icon: &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: &#x2F;images&#x2F;logo.svg</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="添加字数统计及阅读时长"><a href="#添加字数统计及阅读时长" class="headerlink" title="添加字数统计及阅读时长"></a>添加字数统计及阅读时长</h1><h2 id="安装hexo-symbols-count-time"><a href="#安装hexo-symbols-count-time" class="headerlink" title="安装hexo-symbols-count-time"></a>安装hexo-symbols-count-time</h2><p>在博客文件夹里执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改相关配置文件"><a href="#修改相关配置文件" class="headerlink" title="修改相关配置文件"></a>修改相关配置文件</h2><ul>
+<li>在<strong>站点</strong>配置文件添加：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line"> #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line"> # 网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在Next<strong>主题</strong>配置文件修改</p>
+<p>搜索<strong>symbols_count_time</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true  # 是否换行显示 字数统计 及 阅读时长</span><br><span class="line">  item_text_post: true  # 文章 字数统计 阅读时长 使用图标 还是 文本表示</span><br><span class="line">  item_text_total: true # 博客底部统计 字数统计 阅读时长 使用图标 还是 文本表示</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
+
+<h1 id="Next的其他小功能"><a href="#Next的其他小功能" class="headerlink" title="Next的其他小功能"></a>Next的其他小功能</h1><h2 id="代码块增加一件复制"><a href="#代码块增加一件复制" class="headerlink" title="代码块增加一件复制"></a>代码块增加一件复制</h2><p>该功能next主题已经内置，我们只要打开就行，主题配置文件搜索<strong>copy_button</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Add copy button on codeblock</span><br><span class="line">copy_button:</span><br><span class="line">  enable: true #是否开启复制功能</span><br><span class="line">  # Show text copy result. #是否显示提示的复制结果</span><br><span class="line">  show_result: true</span><br></pre></td></tr></table></figure>
+
+<h2 id="增加打赏功能"><a href="#增加打赏功能" class="headerlink" title="增加打赏功能"></a>增加打赏功能</h2><p>这个也是next具备了。先把需要的收款码放到/themes/next/source/images里面。</p>
+<p>搜索<strong>reward_settings</strong>修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reward_settings:</span><br><span class="line">  # If true, reward will be displayed in every article by default.</span><br><span class="line">  enable: true</span><br><span class="line">  animation: true</span><br><span class="line">  #comment: Donate comment here.</span><br><span class="line"></span><br><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.png</span><br><span class="line">  alipay: &#x2F;images&#x2F;alipay.png</span><br><span class="line">  #bitcoin: &#x2F;images&#x2F;bitcoin.png</span><br></pre></td></tr></table></figure>
+
+<h2 id="增加版权信息"><a href="#增加版权信息" class="headerlink" title="增加版权信息"></a>增加版权信息</h2><p>搜索<strong>creative_commons</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false #首页边栏是否显示</span><br><span class="line">  post: true #文章底部是否显示</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改标签样式"><a href="#修改标签样式" class="headerlink" title="修改标签样式"></a>修改标签样式</h1><p>默认的标签前面是一个#号，我们把它改成标签的符号并删除下划线：</p>
+<p>打开<strong>/themes/next/layout/_macro/post.swig</strong>，搜索<strong>post-footer</strong></p>
+<p>找到：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- set tag_indicate &#x3D; &#39;#&#39; %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>把<strong>#</strong>修改为：<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code>，这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;footer class&#x3D;&quot;post-footer&quot;&gt;</span><br><span class="line">  &#123;%- if post.tags and post.tags.length %&#125;</span><br><span class="line">    &#123;%- if theme.tag_icon %&#125;</span><br><span class="line">      &#123;%- set tag_indicate &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br><span class="line">    &#123;% else %&#125;</span><br><span class="line">      &#123;%- set tag_indicate &#x3D; &#39;&lt;i class&#x3D;&quot;fa fa-tag&quot;&gt;&lt;&#x2F;i&gt;&#39; %&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加本站运行时间"><a href="#添加本站运行时间" class="headerlink" title="添加本站运行时间"></a>添加本站运行时间</h1><p>修改<strong>/blog/themes/next/layout/_partials/footer.swig</strong>文件，在末尾加入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;br &#x2F;&gt; #换行</span><br><span class="line">&lt;!-- 网站运行时间的设置 --&gt;</span><br><span class="line">&lt;span id&#x3D;&quot;timeDate&quot;&gt;载入天数...&lt;&#x2F;span&gt;</span><br><span class="line">&lt;span id&#x3D;&quot;times&quot;&gt;载入时分秒...&lt;&#x2F;span&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var now &#x3D; new Date();</span><br><span class="line">    function createtime() &#123;</span><br><span class="line">        var grt&#x3D; new Date(&quot;04&#x2F;21&#x2F;2019 15:54:40&quot;);&#x2F;&#x2F;此处修改你的建站时间或者网站上线时间</span><br><span class="line">        now.setTime(now.getTime()+250);</span><br><span class="line">        days &#x3D; (now - grt ) &#x2F; 1000 &#x2F; 60 &#x2F; 60 &#x2F; 24; dnum &#x3D; Math.floor(days);</span><br><span class="line">        hours &#x3D; (now - grt ) &#x2F; 1000 &#x2F; 60 &#x2F; 60 - (24 * dnum); hnum &#x3D; Math.floor(hours);</span><br><span class="line">        if(String(hnum).length &#x3D;&#x3D;1 )&#123;hnum &#x3D; &quot;0&quot; + hnum;&#125; minutes &#x3D; (now - grt ) &#x2F; 1000 &#x2F;60 - (24 * 60 * dnum) - (60 * hnum);</span><br><span class="line">        mnum &#x3D; Math.floor(minutes); if(String(mnum).length &#x3D;&#x3D;1 )&#123;mnum &#x3D; &quot;0&quot; + mnum;&#125;</span><br><span class="line">        seconds &#x3D; (now - grt ) &#x2F; 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);</span><br><span class="line">        snum &#x3D; Math.round(seconds); if(String(snum).length &#x3D;&#x3D;1 )&#123;snum &#x3D; &quot;0&quot; + snum;&#125;</span><br><span class="line">        document.getElementById(&quot;timeDate&quot;).innerHTML &#x3D; &quot;本站已安全运行 &quot;+dnum+&quot; 天 &quot;;</span><br><span class="line">        document.getElementById(&quot;times&quot;).innerHTML &#x3D; hnum + &quot; 小时 &quot; + mnum + &quot; 分 &quot; + snum + &quot; 秒&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">setInterval(&quot;createtime()&quot;,250);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加站点访问人数和总访问量"><a href="#添加站点访问人数和总访问量" class="headerlink" title="添加站点访问人数和总访问量"></a>添加站点访问人数和总访问量</h1><p>修改next主题配置文件，搜索<strong>busuanzi_count</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br><span class="line">  total_visitors: true</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo个人配置汇总和next皮肤设置</title>
+    <url>/Hexo/2020-02-11-hexo-optimize-and-next-theme/</url>
+    <content><![CDATA[<blockquote>
+<p>进入到博客文件夹里面就有hexo的相关文件，其中_config.yml统称为站点配置文件。</p>
+<p>而皮肤下的_config.yml统称为皮肤配置文件。</p>
+</blockquote>
+<h1 id="网站个性化、语言和时区等"><a href="#网站个性化、语言和时区等" class="headerlink" title="网站个性化、语言和时区等"></a>网站个性化、语言和时区等</h1><p>站点配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: Hexo</span><br><span class="line">subtitle: &#39;&#39;</span><br><span class="line">description: &#39;&#39;</span><br><span class="line">keywords:</span><br><span class="line">author: John Doe</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: &#39;Asia&#x2F;ShangHai&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="url-网址设置"><a href="#url-网址设置" class="headerlink" title="url 网址设置"></a>url 网址设置</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">url: http:&#x2F;&#x2F;yoursite.com</span><br><span class="line">root: &#x2F;</span><br><span class="line">permalink: :category&#x2F;:year:month:day-:urlname&#x2F; #:year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+
+<p>permalink是设置永久链接，采用文章中Front-matter定义的一个变量</p>
+<p>如<code>urlname: synology-build_hexo-blog</code></p>
+<h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p>我选择的是next主题</p>
+<div class="tabs" id="方法"><ul class="nav-tabs"><li class="tab"><a href="#方法-1">下载最新版</a></li><li class="tab"><a href="#方法-2">下载最新的master分支</a></li></ul><div class="tab-content"><div class="tab-pane" id="方法-1"><p>大多数情况下<strong>稳定</strong>。推荐给初学者。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir themes&#x2F;next</span><br><span class="line">curl -s https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;theme-next&#x2F;hexo-theme-next&#x2F;releases&#x2F;latest | grep tarball_url | cut -d &#39;&quot;&#39; -f 4 | wget -i - -O- | tar -zx -C themes&#x2F;next --strip-components&#x3D;1</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="方法-2"><p>可能<strong>不稳定</strong>，但包含最新功能。推荐给高级用户和开发人员。</p>
+<ul>
+<li>通过curl &amp; tar安装:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir themes&#x2F;next</span><br><span class="line">curl -L https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;theme-next&#x2F;hexo-theme-next&#x2F;tarball | tar -zxv -C themes&#x2F;next --strip-components&#x3D;1</span><br></pre></td></tr></table></figure>
+- 通过git安装：
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure></div></div></div>
+
+<h2 id="Hexo选择主题"><a href="#Hexo选择主题" class="headerlink" title="Hexo选择主题"></a>Hexo选择主题</h2><p>修改站点配置文件，默认是landscape。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<h2 id="next主题设置"><a href="#next主题设置" class="headerlink" title="next主题设置"></a>next主题设置</h2><p>查看另一篇文章Hexo的Next皮肤美化设置</p>
+<h1 id="SEO设置"><a href="#SEO设置" class="headerlink" title="SEO设置"></a>SEO设置</h1><p>主要是百度和谷歌。</p>
+<h2 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h2><p>安装站点地图插件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>在站点配置文件下添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sitemap config</span><br><span class="line">sitemap: </span><br><span class="line">  path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
+
+<h2 id="百度SEO设置"><a href="#百度SEO设置" class="headerlink" title="百度SEO设置"></a>百度SEO设置</h2><p>待更新</p>
+<h2 id="谷歌SEO设置"><a href="#谷歌SEO设置" class="headerlink" title="谷歌SEO设置"></a>谷歌SEO设置</h2><p>简要说明下流程。</p>
+<h3 id="谷歌网址所有权验证"><a href="#谷歌网址所有权验证" class="headerlink" title="谷歌网址所有权验证"></a>谷歌网址所有权验证</h3><p>我使用的是<strong>HTML 标记</strong>，把谷歌提供的标记添加到头部。</p>
+<p>位置是<strong>themes/next/layout/_partials/head/head.swig</strong>，在前面的地方添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1, maximum-scale&#x3D;2&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;theme-color&quot; content&#x3D;&quot;&#123;&#123; theme.android_chrome_color &#125;&#125;&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;generator&quot; content&#x3D;&quot;Hexo &#123;&#123; hexo_version &#125;&#125;&quot;&gt;</span><br><span class="line">&lt;meta name&#x3D;&quot;google-site-verification&quot; content&#x3D;谷歌提供的标记 &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="关联github"><a href="#关联github" class="headerlink" title="关联github"></a>关联github</h1><ol>
+<li><p>安装<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;&lt;username&gt;&#x2F;&lt;project&gt;</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置Git邮箱和用户名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h1><p>用的是next主题自带<strong>gitalk评论</strong>的配置，打开主题配置文件，搜索<strong>comments</strong>，在gitalk位置添加相关的内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  enable: false</span><br><span class="line">  github_id: # GitHub repo owner</span><br><span class="line">  repo: # Repository name to store issues</span><br><span class="line">  client_id: # GitHub Application Client ID</span><br><span class="line">  client_secret: # GitHub Application Client Secret</span><br><span class="line">  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues</span><br><span class="line">  distraction_free_mode: true # Facebook-like distraction free mode</span><br><span class="line">  # Gitalk&#39;s display language depends on user&#39;s browser or system environment</span><br><span class="line">  # If you want everyone visiting your site to see a uniform language, you can set a force language value</span><br><span class="line">  # Available values: en | es-ES | fr | ru | zh-CN | zh-TW</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="写作模板"><a href="#写作模板" class="headerlink" title="写作模板"></a>写作模板</h1><p><code>/scaffolds/post.md</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">urlname:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">description:</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="去除代码块的行号"><a href="#去除代码块的行号" class="headerlink" title="去除代码块的行号"></a>去除代码块的行号</h1><p>在站点配置文件中找到 <code>highlight</code> 节点，设置 <code>line_number</code> 为 <code>false</code></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESXI更新升级</title>
+    <url>/ESXI/2020-02-10-esxi_upgrade/</url>
+    <content><![CDATA[<h1 id="下载升级包"><a href="#下载升级包" class="headerlink" title="下载升级包"></a>下载升级包</h1><p>官网：<a href="https://my.vmware.com/" target="_blank" rel="noopener">https://my.vmware.com/</a></p>
+<img src="/ESXI/2020-02-10-esxi_upgrade/ESXI_Upgrade_01.png" class="" title="ESXI_Upgrade_01">
+
+<p>下载为zip格式，不用解压。</p>
+<h1 id="升级准备"><a href="#升级准备" class="headerlink" title="升级准备"></a>升级准备</h1><ol>
+<li><p>上传zip安装包到ESXI的数据存储区。</p>
+</li>
+<li><p>打开ESXI的ssh服务并使用root登录。</p>
+<p>查看版本号 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vmware -vl</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>关闭所有虚拟机。</p>
+</li>
+<li><p>ESXI进入维护模式</p>
+</li>
+</ol>
+<h1 id="开始升级"><a href="#开始升级" class="headerlink" title="开始升级"></a>开始升级</h1><p>ssh连接ESXI。</p>
+<p>查看升级包的配置文件名称</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">esxcli software sources profile list -d &#x2F;vmfs&#x2F;volumes&#x2F;datastore1&#x2F;ESXi670-201912001.zip</span><br></pre></td></tr></table></figure>
+
+<img src="/ESXI/2020-02-10-esxi_upgrade/ESXI_Upgrade_02.png" class="" title="ESXI_Upgrade_02">
+
+<p>复制升级包名称，我选择的是ESXi-6.7.0-20191204001-standard。</p>
+<p>升级命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">esxcli software profile update -d &#x2F;vmfs&#x2F;volumes&#x2F;volumes&#x2F;datastore1&#x2F;ESXi670-201912001.zip -p ESXi-6.7.0-20191204001-standard</span><br></pre></td></tr></table></figure>
+
+<p>升级成功后重启，检查下版本号就可以了。</p>
+]]></content>
+      <categories>
+        <category>ESXI</category>
+      </categories>
+      <tags>
+        <tag>ESXI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESXI备份虚拟机ova模板</title>
+    <url>/ESXI/2020-02-10-ESXI_Backup_OVA/</url>
+    <content><![CDATA[<h1 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h1><ol>
+<li>虚拟机不能包含直通网卡，或者其他PCI设备，可以先删除后备份，备份前截图记一下。</li>
+<li>运行的虚拟机需要关闭。</li>
+</ol>
+<h1 id="需要工具"><a href="#需要工具" class="headerlink" title="需要工具"></a>需要工具</h1><p>工具就一个：<a href="https://my.vmware.com/cn/group/vmware/details?downloadGroup=OVFTOOL430U2&productId=758" target="_blank" rel="noopener">VMware OVF Tool</a></p>
+<p>windows和mac都有，如果安装VMware虚拟机的话都自带有，就不用在下载OVF Tool了。</p>
+<p>mac需要设置环境变量：</p>
+<ol>
+<li>未安装VMware Fusion</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi ~&#x2F;.bash_profile</span><br><span class="line">export PATH&#x3D;&#x2F;Applications&#x2F;VMware\ OVF\ Tool:$&#123;PATH&#125;</span><br><span class="line">source .bash_profile     #重启环境变量</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>已安装VMware Fusion</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi ~&#x2F;.bash_profile</span><br><span class="line">export PATH&#x3D;&#x2F;Applications&#x2F;VMware\ Fusion.app&#x2F;Contents&#x2F;Library&#x2F;VMware\ OVF\ Tool:$&#123;PATH&#125;</span><br><span class="line">source .bash_profile     #重启环境变量</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="备份命令"><a href="#备份命令" class="headerlink" title="备份命令"></a>备份命令</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;Applications&#x2F;VMware\ OVF\ Tool</span><br><span class="line">ovftool vi:&#x2F;&#x2F;root:@10.10.10.254&#x2F;LEDE &#x2F;Users&#x2F;vee&#x2F;Desktop&#x2F;ledeova&#x2F;lede.ova</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>ESXI</category>
+      </categories>
+      <tags>
+        <tag>ESXI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VPS相关软件安装记录</title>
+    <url>/VPS/2019-05-07-vps-software-install/</url>
+    <content><![CDATA[<h1 id="v2ray安装记录加WebSocket-TLS-Web"><a href="#v2ray安装记录加WebSocket-TLS-Web" class="headerlink" title="v2ray安装记录加WebSocket+TLS+Web"></a>v2ray安装记录加WebSocket+TLS+Web</h1><h2 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h2><p>V2Ray 提供了一个在 Linux 中的自动化安装脚本。这个脚本会自动检测有没有安装过 V2Ray，如果没有，则进行完整的安装和配置；如果之前安装过 V2Ray，则只更新 V2Ray 二进制程序而不更新配置。</p>
+<p>以下指令假设已在 su 环境下，如果不是，请先运行 sudo su。</p>
+<p>运行下面的指令下载并安装 V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。这两个组件是安装 V2Ray 的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https:&#x2F;&#x2F;install.direct&#x2F;go.sh)</span><br></pre></td></tr></table></figure>
+
+<p>此脚本会自动安装以下文件：</p>
+<ul>
+<li><code>/usr/bin/v2ray/v2ray</code>：V2Ray 程序</li>
+<li><code>/usr/bin/v2ray/v2ctl</code>：V2Ray 工具</li>
+<li><code>/etc/v2ray/config.json</code>：配置文件</li>
+<li><code>/usr/bin/v2ray/geoip.dat</code>：IP 数据文件</li>
+<li><code>/usr/bin/v2ray/geosite.dat</code>：域名数据文件</li>
+</ul>
+<p>此脚本会配置自动运行脚本。自动运行脚本会在系统重启之后，自动运行 V2Ray。目前自动运行脚本只支持带有 Systemd 的系统，以及 Debian / Ubuntu 全系列。</p>
+<p>运行脚本位于系统的以下位置：</p>
+<ul>
+<li><code>/etc/systemd/system/v2ray.service</code>: Systemd</li>
+<li><code>/etc/init.d/v2ray</code>: SysV</li>
+</ul>
+<p>脚本运行完成后，你需要：</p>
+<ol>
+<li>编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式；</li>
+<li>运行 service v2ray start 来启动 V2Ray 进程；</li>
+<li>之后可以使用 service v2ray start|stop|status|reload|restart|force-reload 控制 V2Ray 的运行。</li>
+</ol>
+<h2 id="WebSocket-TLS-Web"><a href="#WebSocket-TLS-Web" class="headerlink" title="WebSocket+TLS+Web"></a>WebSocket+TLS+Web</h2><p>主要是利用面板来搭建</p>
+<h3 id="安装宝塔面板"><a href="#安装宝塔面板" class="headerlink" title="安装宝塔面板"></a>安装宝塔面板</h3><p>安装5.9版本，占用内存较少，系统优先选用CentOS，其他安装php有问题</p>
+<p>Centos安装命令： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu/Deepin安装命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
+<p>Debian安装命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install-ubuntu.sh &amp;&amp; bash install.sh</span><br></pre></td></tr></table></figure>
+
+<p>Fedora安装命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O install.sh http:&#x2F;&#x2F;download.bt.cn&#x2F;install&#x2F;install.sh &amp;&amp; bash install.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="剩余步骤"><a href="#剩余步骤" class="headerlink" title="剩余步骤"></a>剩余步骤</h3><ol>
+<li>申请域名，建立网站。</li>
+<li>申请SSL证书。</li>
+<li>Nginx配置，加入代码：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location &#x2F;ray &#123;</span><br><span class="line">        proxy_redirect off;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:10000;#假设WebSocket监听在环回地址的10000端口上</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">        proxy_set_header Host $http_host;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>VPS</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>v2ray</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>群晖安装Transmission+Flexget</title>
+    <url>/NAS/2019-05-01-synology-install-transmission-and-flexget/</url>
+    <content><![CDATA[<h1 id="Transmission安装及优化"><a href="#Transmission安装及优化" class="headerlink" title="Transmission安装及优化"></a>Transmission安装及优化</h1><h2 id="Transmisstion的安装"><a href="#Transmisstion的安装" class="headerlink" title="Transmisstion的安装"></a>Transmisstion的安装</h2><p>群晖添加套件来源<a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a></p>
+<p>在社群里就可以安装Transmission了比较简单。安装完毕后会在群晖添加名为sc-download的群组，为了使Tr有下载目录的权限，需要在控制面板→用户群组中设置sc-download对应目录的读写权限。</p>
+<p>这里说一下Transmission的下载任务备份，直接备份安装目录下的var目录（含设置文件）我的路径是：/volume1/@appstore/transmission/var，还原就直接覆盖吧，复制完后记得修改文件权限。</p>
+<h2 id="Transmission的WebUI"><a href="#Transmission的WebUI" class="headerlink" title="Transmission的WebUI"></a>Transmission的WebUI</h2><p>我使用的有两种：</p>
+<ol>
+<li>一种是自带的WebUI增强，功能更强大支持移动端。</li>
+</ol>
+<p>中文项目地址：<a href="https://github.com/ronggang/transmission-web-control/wiki/Home-CN" target="_blank" rel="noopener">https://github.com/ronggang/transmission-web-control/wiki/Home-CN</a>，可以按需选择安装方法。</p>
+<p>我选择的是ssh安装代码摘抄如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;volume1&#x2F;@appstore&#x2F;transmission</span><br><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;ronggang&#x2F;transmission-web-control&#x2F;raw&#x2F;master&#x2F;release&#x2F;install-tr-control-cn.sh</span><br><span class="line">bash install-tr-control-cn.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>另一种是客户端形式</li>
+</ol>
+<p>客户端名字是Transmission Remote GUI，项目地址：<a href="https://github.com/transmission-remote-gui/transgui" target="_blank" rel="noopener">https://github.com/transmission-remote-gui/transgui</a></p>
+<h1 id="Flexget安装"><a href="#Flexget安装" class="headerlink" title="Flexget安装"></a>Flexget安装</h1><p>官方网站<a href="https://flexget.com/，Flexget的功能很多需要慢慢学习" target="_blank" rel="noopener">https://flexget.com/，Flexget的功能很多需要慢慢学习</a></p>
+<p>Flexget需要python的支持，群晖可以在套件里安装，官方的说明：FlexGet supports Python 2.7, 3.3, 3.4 and 3.5. Python 3.6 is not yet supported，正好群晖里的版本是3.5.1-0108。</p>
+<p>官方有两种推荐方法一种是在Docker里安装，一种是Local Python package，还有一种不推荐的方法就是安装套件社群里的安装包。我选择推荐的第二种，有一点小变动，也是网上搜索的</p>
+<p>，往下看：</p>
+<h2 id="安装前的准备python"><a href="#安装前的准备python" class="headerlink" title="安装前的准备python"></a>安装前的准备python</h2><ul>
+<li>pip安装和更新</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;volume1&#x2F;@appstore&#x2F;py3k&#x2F;usr&#x2F;local&#x2F;bin</span><br><span class="line">.&#x2F;python3 -m ensurepip</span><br><span class="line">.&#x2F;python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>顺便创建一个easy_install的软链接，万一以后使用easy_install安装软件也方便了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -sf easy_install-3.5 easy_install</span><br></pre></td></tr></table></figure>
+
+<h2 id="virtualenv的方式安装flexget"><a href="#virtualenv的方式安装flexget" class="headerlink" title="virtualenv的方式安装flexget"></a>virtualenv的方式安装flexget</h2><p>以下命令都在目录/volume1/@appstore/py3k/usr/local/bin下</p>
+<ul>
+<li>安装virtualenv</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;pip3.5 install virtualenv</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建Flexget的virtualenv环境，我是安装在/volume1目录下，可以共享，方便日志查看。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;virtualenv &#x2F;volume1&#x2F;flexget&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>进入flexget/bin文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;volume1&#x2F;flexget&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<p>启动virtualenv 环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source activate</span><br></pre></td></tr></table></figure>
+
+<p>启动后在命令行左侧有标示 flexget</p>
+<ul>
+<li>安装Flexget</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3.5 install flexget</span><br></pre></td></tr></table></figure>
+
+<p>安装完毕后bin文件夹里就有flexget文件了</p>
+<ul>
+<li>安装Flexget所需的transmissionrpc</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3.5 install transmissionrpc</span><br></pre></td></tr></table></figure>
+
+<p>安装完毕退出virtualenv环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<p>以后使用flexget命令就在/volume1/flexget/bin/flexget</p>
+<h1 id="Flexget的运行"><a href="#Flexget的运行" class="headerlink" title="Flexget的运行"></a>Flexget的运行</h1><p>在flexget文件夹加入自己的配置文件config.yml。</p>
+<p>运行官方推荐加入服务的方式，但是我喜欢修改crontab的方法</p>
+<p>路径：/etc/crontab</p>
+<p>修改加入以下参数：</p>
+<blockquote>
+<p>*/15    *    *    *    *    root    /volume1/flexget/bin/flexget execute</p>
+</blockquote>
+<p>意思是每隔15分钟运行，然后重启crontab服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">synoservice -restart crond</span><br></pre></td></tr></table></figure>
+
+<p>如果crontab失败直接用群晖的计划任务建立，也挺方便。</p>
+<p>搞定！感谢原作者。</p>
+<p>以后有时间写写config.yml配置文件，官方有详细的说明：</p>
+<p><a href="https://flexget.com/Configuration" target="_blank" rel="noopener">https://flexget.com/Configuration</a></p>
+<p><a href="http://flexget.com/Plugins" target="_blank" rel="noopener">http://flexget.com/Plugins</a></p>
+]]></content>
+      <categories>
+        <category>NAS</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>PT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>群晖初始安装记录</title>
+    <url>/NAS/2019-05-01-synology-nas-installation/</url>
+    <content><![CDATA[<h1 id="获取Root权限"><a href="#获取Root权限" class="headerlink" title="获取Root权限"></a>获取Root权限</h1><ol>
+<li><p>开启SSH功能，端口22。</p>
+</li>
+<li><p>连接SSH用现有的管理员登陆。</p>
+</li>
+<li><p>切换root账户，并修改sshd文件允许root连接SSH。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo -i</span><br><span class="line">vim &#x2F;etc&#x2F;ssh&#x2F;sshd_config</span><br><span class="line">synouser --setpw root xxx</span><br></pre></td></tr></table></figure>
+
+<p>对应为1、切换root；2、修改sshd_config文件，键盘输入i切换为修改模式，然后找到#PermitRootLogin prohibit-password修改为PermitRootLogin yes，注意把前面的#号去掉然后保存，按Esc键再按冒号:，输入wq回车就保存了；3、修改root密码xxx输入需要设定的密码，无法修改青重启群晖即可解决。最后重启SSH功能，没找到群晖的命令，在控制面板取消又打开ssh功能即可。ps. 首次安装需要重启群晖可解决一些问题。</p>
+<h1 id="套件安装"><a href="#套件安装" class="headerlink" title="套件安装"></a>套件安装</h1><p>套件中心添加套件来源：</p>
+<blockquote>
+<p><a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a></p>
+</blockquote>
+<p>添加喜欢的套件，就ok了。</p>
+<h1 id="SSH修改SN记录"><a href="#SSH修改SN记录" class="headerlink" title="SSH修改SN记录"></a>SSH修改SN记录</h1><p>下列命令使用root权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p &#x2F;tmp&#x2F;boot</span><br><span class="line">cd &#x2F;dev</span><br><span class="line">mount -t vfat synoboot1 &#x2F;tmp&#x2F;boot&#x2F;</span><br><span class="line">cd &#x2F;tmp&#x2F;boot&#x2F;grub</span><br><span class="line">vim grub.cfg</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h1 id="转码时验证SN是否通过"><a href="#转码时验证SN是否通过" class="headerlink" title="转码时验证SN是否通过"></a>转码时验证SN是否通过</h1><blockquote>
+<p>路径：/usr/syno/etc/codec/activation.conf</p>
+</blockquote>
+<h1 id="说一下降级过程中遇到的问题吧"><a href="#说一下降级过程中遇到的问题吧" class="headerlink" title="说一下降级过程中遇到的问题吧"></a>说一下降级过程中遇到的问题吧</h1><p>使用修改VERSION方法，路径在/etc.defaults/VERSION。千万不要去格式化硬盘的第一分区。</p>
+<p>大概就这些了，当然还有很多需要设置，证书、套件、PT等，会在其他文章分享。</p>
+]]></content>
+      <categories>
+        <category>NAS</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>群晖搭建Hexo博客</title>
+    <url>/NAS/2019-04-23-synology-nas-build-hexo-blog/</url>
+    <content><![CDATA[<h1 id="群晖安装相关套件"><a href="#群晖安装相关套件" class="headerlink" title="群晖安装相关套件"></a>群晖安装相关套件</h1><ol>
+<li>Web Station，用来在群晖服务器上发布博客，安装后自带Nginx HTTP后端服务器。</li>
+<li>PHP 5.6、7.0、7.2，都可以一并安装。</li>
+<li>Node.js v8，也是Moments要求安装的版本，安装后npm更新到5.6.0。</li>
+<li>Git Server，可以用来发布到Github上。</li>
+</ol>
+<p>安装位置我是默认在/volume1，后面涉及命令的相关路径可根据自己的位置做修改。</p>
+<p>ps. 可更新node和npm版本，遇到相关问题或需要可更新，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm cache clean -f #清除npm缓存非必须</span><br><span class="line">npm install -g n #安装n模块</span><br><span class="line">cd cd &#x2F;volume1&#x2F;@appstore&#x2F;Node.js_v8&#x2F;usr&#x2F;local&#x2F;bin&#x2F; #找到n命令位置</span><br><span class="line">.&#x2F;n stable #升级node.js到最新稳定版</span><br><span class="line">npm install -g npm #再更新npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Web-Station-设置"><a href="#Web-Station-设置" class="headerlink" title="Web Station 设置"></a>Web Station 设置</h2><p>看图就行了</p>
+<p><img src="https://img.mrzorg.top/images/2019/09/05/Hexo_01.png" alt=""></p>
+<p><img src="https://img.mrzorg.top/images/2019/09/05/Hexo_02.png" alt=""></p>
+<p>PHP各个版本都设置，这个是发布各种php框架的web所需要的。</p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>群晖需要用root账户进入SSH通过命令安装Hexo，群晖需要获取root权限具体方法请百度。<br>安装代码：</p>
+<pre><code>$ npm install -g hexo-cli</code></pre><p>有提示不用理会，可自行搜索学习。<br>hexo安装文件位置为：</p>
+<blockquote>
+<p>/volume1/@appstore/Node.js_v8/usr/local/lib/node_modules/hexo-cli/bin/hexo</p>
+</blockquote>
+<p>安装好后hexo命令不是全局的需要在群晖中做个软连接，命令如下：</p>
+<pre><code>ln -s /volume1/@appstore/Node.js_v8/usr/local/lib/node_modules/hexo-cli/bin/hexo /usr/local/bin/hexo</code></pre><p>至此Hexo博客框架已搭好，下一步就是建立博客并通过<strong>Web Station</strong>发布</p>
+<h1 id="Hexo博客的建立"><a href="#Hexo博客的建立" class="headerlink" title="Hexo博客的建立"></a>Hexo博客的建立</h1><p>Web Station安装后在/volume1下有个web文件夹，是默认发布的网页。<br>按个人喜好博客可在此文件夹里发布，也可以新建文件夹：</p>
+<pre><code>mkdir /volume1/web/blog
+cd  /volume1/web/blog
+hexo init # 创建Hexo所需文件</code></pre><p>Hexo博客就搭建完毕，是不是很简单？</p>
+<pre><code>hexo s
+hexo s -p4001 # 如果默认的端口被占用可以改端口</code></pre><p>就可以启动局域网hexo服务（仅供预览使用），浏览器进入就可以看到博客了，端口是4000，可以安装各种皮肤。</p>
+<p>Ctrl+C 停止hexo服务。</p>
+<h1 id="群晖Web-Station发布"><a href="#群晖Web-Station发布" class="headerlink" title="群晖Web Station发布"></a>群晖Web Station发布</h1><p>创建文章</p>
+<pre><code>hexo new “文章名字”</code></pre><p>文章后缀.md, 保存在 /volume1/web/blog/source/_posts  </p>
+<p>此时还没有产生网页文件，需要通过命令：</p>
+<pre><code>hexo g</code></pre><p>然后在blog文件夹下生成public文件夹，就可以用<strong>Web Station</strong>发布博客了。如果需要发布到Github，去套件安装Git Server，然后直接命令<code>hexo d</code></p>
+<h1 id="命令汇总"><a href="#命令汇总" class="headerlink" title="命令汇总"></a>命令汇总</h1><pre><code>npm install -g hexo-cli
+ln -s /volume1/@appstore/Node.js_v8/usr/local/lib/node_modules/hexo-cli/bin/hexo /usr/local/bin/hexo
+mkdir /volume1/web/blog
+cd  /volume1/web/blog
+hexo init # 创建Hexo所需文件
+hexo s # 启动博客服务
+hexo g # 发布博客
+hexo clean # 清空发布，会删除public文件夹</code></pre>]]></content>
+      <categories>
+        <category>NAS</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+</search>
