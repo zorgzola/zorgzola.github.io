@@ -170,6 +170,12 @@
 
 
 <h1 id="去除代码块的行号"><a href="#去除代码块的行号" class="headerlink" title="去除代码块的行号"></a>去除代码块的行号</h1><p>在站点配置文件中找到 <code>highlight</code> 节点，设置 <code>line_number</code> 为 <code>false</code></p>
+<h1 id="文章图片可点击放大"><a href="#文章图片可点击放大" class="headerlink" title="文章图片可点击放大"></a>文章图片可点击放大</h1><p>需要插件<a href="https://github.com/theme-next/theme-next-fancybox3" target="_blank" rel="noopener">fancybox3</a>支持，安装在主题next里。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd themes&#x2F;next</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-fancybox3 source&#x2F;lib&#x2F;fancybox</span><br></pre></td></tr></table></figure>
+
+<p>主题配置文件修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.</span><br><span class="line"># For more information: https:&#x2F;&#x2F;fancyapps.com&#x2F;fancybox</span><br><span class="line">fancybox: true</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -180,10 +186,9 @@
   </entry>
   <entry>
     <title>ESXI更新升级</title>
-    <url>/ESXI/2020-02-10-esxi_upgrade/</url>
+    <url>/ESXI/2020-02-10-esxi-upgrade/</url>
     <content><![CDATA[<h1 id="下载升级包"><a href="#下载升级包" class="headerlink" title="下载升级包"></a>下载升级包</h1><p>官网：<a href="https://my.vmware.com/" target="_blank" rel="noopener">https://my.vmware.com/</a></p>
-<img src="/ESXI/2020-02-10-esxi_upgrade/ESXI_Upgrade_01.png" class="" title="ESXI_Upgrade_01">
-
+<p><img src="ESXI_Upgrade_01.png" alt=""></p>
 <p>下载为zip格式，不用解压。</p>
 <h1 id="升级准备"><a href="#升级准备" class="headerlink" title="升级准备"></a>升级准备</h1><ol>
 <li><p>上传zip安装包到ESXI的数据存储区。</p>
@@ -206,8 +211,7 @@
 <p>查看升级包的配置文件名称</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">esxcli software sources profile list -d &#x2F;vmfs&#x2F;volumes&#x2F;datastore1&#x2F;ESXi670-201912001.zip</span><br></pre></td></tr></table></figure>
 
-<img src="/ESXI/2020-02-10-esxi_upgrade/ESXI_Upgrade_02.png" class="" title="ESXI_Upgrade_02">
-
+<p><img src="ESXI_Upgrade_02.png" alt=""></p>
 <p>复制升级包名称，我选择的是ESXi-6.7.0-20191204001-standard。</p>
 <p>升级命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">esxcli software profile update -d &#x2F;vmfs&#x2F;volumes&#x2F;volumes&#x2F;datastore1&#x2F;ESXi670-201912001.zip -p ESXi-6.7.0-20191204001-standard</span><br></pre></td></tr></table></figure>
@@ -450,8 +454,8 @@
 
 
 <h2 id="Web-Station-设置"><a href="#Web-Station-设置" class="headerlink" title="Web Station 设置"></a>Web Station 设置</h2><p>看图就行了</p>
-<p><img src="https://img.mrzorg.top/images/2019/09/05/Hexo_01.png" alt=""></p>
-<p><img src="https://img.mrzorg.top/images/2019/09/05/Hexo_02.png" alt=""></p>
+<p><img src="Hexo_01.png" alt=""></p>
+<p><img src="Hexo_02.png" alt=""></p>
 <p>PHP各个版本都设置，这个是发布各种php框架的web所需要的。</p>
 <h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>群晖需要用root账户进入SSH通过命令安装Hexo，群晖需要获取root权限具体方法请百度。<br>安装代码：</p>
 <pre><code>$ npm install -g hexo-cli</code></pre><p>有提示不用理会，可自行搜索学习。<br>hexo安装文件位置为：</p>
