@@ -3,12 +3,18 @@
   <entry>
     <title>Hexo的Next主题美化设置</title>
     <url>/Hexo/2020-02-12-hero-next-theme-settings/</url>
-    <content><![CDATA[<p>Hexo主题我还是喜欢next，主要是简洁，我是初学者所以暂时做简单的改动。</p>
-<p>主要通过修改next的配置文件<strong>_config.yml</strong> 来达成。我安装的next版本是v7.7.1。</p>
+    <content><![CDATA[<p>Hexo主题我还是喜欢next，主要是简洁，我是初学者所以暂时做简单的改动。<br>主要通过修改next的配置文件<strong>_config.yml</strong> 来达成。我安装的next版本是v7.7.1。</p>
+<a id="more"></a>
+
+<h1 id="Next7-0版本注意"><a href="#Next7-0版本注意" class="headerlink" title="Next7.0版本注意"></a>Next7.0版本注意</h1><p>参考：<a href="https://tding.top/" target="_blank" rel="noopener">小丁的博客</a></p>
 <h1 id="选择next主题的布局"><a href="#选择next主题的布局" class="headerlink" title="选择next主题的布局"></a>选择next主题的布局</h1><p>在主题配置文件中搜索Scheme</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
 
 <p>我选择的是Gemini，大家可以切换选择，找到自己喜欢的布局。</p>
+<h1 id="首页文章不展示全文显示摘要"><a href="#首页文章不展示全文显示摘要" class="headerlink" title="首页文章不展示全文显示摘要"></a>首页文章不展示全文显示摘要</h1><blockquote>
+<p>官方公告：auto_excerpt 可以自动截断文章内容作为摘要。此功能不是一个 Hexo 主题应当负责的，这为主题的维护者带来了太大压力。自 7.6.0 版本开始，此功能被移除，请自行安装第三方插件，或阅读 Hexo 有关文档。当然，我们仍然建议通过 <code>&lt;!-- more --&gt;</code> 来精确控制 Read More 的位置。</p>
+</blockquote>
+<p>因此，这个功能在新版的 NexT 已经被废弃了，大家可以直接在文章中添加 <code>&lt;!-- more --&gt;</code> 来精确控制摘要内容。</p>
 <h1 id="页面菜单"><a href="#页面菜单" class="headerlink" title="页面菜单"></a>页面菜单</h1><p>next默认只有两个页面菜单，首页<strong>home</strong>和归档<strong>archives</strong>，搜索<strong>menu</strong>我们按需选择。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || home #首页</span><br><span class="line">  #about: &#x2F;about&#x2F; || user #关于</span><br><span class="line">  #tags: &#x2F;tags&#x2F; || tags #标签</span><br><span class="line">  #categories: &#x2F;categories&#x2F; || th #分类</span><br><span class="line">  archives: &#x2F;archives&#x2F; || archive #归档</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar #日程表</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap #站点地图</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat #公益404</span><br></pre></td></tr></table></figure>
 
@@ -70,6 +76,11 @@
 <h1 id="Next的其他小功能"><a href="#Next的其他小功能" class="headerlink" title="Next的其他小功能"></a>Next的其他小功能</h1><h2 id="代码块增加一件复制"><a href="#代码块增加一件复制" class="headerlink" title="代码块增加一件复制"></a>代码块增加一件复制</h2><p>该功能next主题已经内置，我们只要打开就行，主题配置文件搜索<strong>copy_button</strong>：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Add copy button on codeblock</span><br><span class="line">copy_button:</span><br><span class="line">  enable: true #是否开启复制功能</span><br><span class="line">  # Show text copy result. #是否显示提示的复制结果</span><br><span class="line">  show_result: true</span><br></pre></td></tr></table></figure>
 
+<h2 id="复制模式mac主题"><a href="#复制模式mac主题" class="headerlink" title="复制模式mac主题"></a>复制模式mac主题</h2><p>就在上面一件复制代码的下面</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">copy_button:</span><br><span class="line">  enable: true #原始false</span><br><span class="line">  # Show text copy result.</span><br><span class="line">  show_result: true #原始false</span><br><span class="line">  # Available values: default | flat | mac</span><br><span class="line">  style: mac</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="增加打赏功能"><a href="#增加打赏功能" class="headerlink" title="增加打赏功能"></a>增加打赏功能</h2><p>这个也是next具备了。先把需要的收款码放到/themes/next/source/images里面。</p>
 <p>搜索<strong>reward_settings</strong>修改：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reward_settings:</span><br><span class="line">  # If true, reward will be displayed in every article by default.</span><br><span class="line">  enable: true</span><br><span class="line">  animation: true</span><br><span class="line">  #comment: Donate comment here.</span><br><span class="line"></span><br><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.png</span><br><span class="line">  alipay: &#x2F;images&#x2F;alipay.png</span><br><span class="line">  #bitcoin: &#x2F;images&#x2F;bitcoin.png</span><br></pre></td></tr></table></figure>
@@ -91,6 +102,31 @@
 <h1 id="添加站点访问人数和总访问量"><a href="#添加站点访问人数和总访问量" class="headerlink" title="添加站点访问人数和总访问量"></a>添加站点访问人数和总访问量</h1><p>修改next主题配置文件，搜索<strong>busuanzi_count</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br><span class="line">  total_visitors: true</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
 
+<h1 id="代码块主题"><a href="#代码块主题" class="headerlink" title="代码块主题"></a>代码块主题</h1><p>Next主题内置了tomorrow代码块高亮主题，一共有五个，可以去<a href="https://github.com/chriskempson/tomorrow-theme" target="_blank" rel="noopener">Tomorrow</a>查看预览效果，搜索<strong>highlight_theme</strong>，在<code>highlight_theme:</code>中改成自己想要的即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  # Code Highlight theme</span><br><span class="line">  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span><br><span class="line">  # See: https:&#x2F;&#x2F;github.com&#x2F;chriskempson&#x2F;tomorrow-theme</span><br><span class="line">  highlight_theme: night #原始normal</span><br></pre></td></tr></table></figure>
+
+<h1 id="页面加载条"><a href="#页面加载条" class="headerlink" title="页面加载条"></a>页面加载条</h1><p>Next主题使用的是<a href="https://github.com/theme-next/theme-next-pace" target="_blank" rel="noopener">PACE</a>功能，有多种加载动画可选。</p>
+<blockquote>
+<p>pace-theme-big-counter<br>pace-theme-bounce<br>pace-theme-barber-shop<br>pace-theme-center-atom<br>pace-theme-center-circle<br>pace-theme-center-radar<br>pace-theme-center-simple<br>pace-theme-corner-indicator<br>pace-theme-fill-left<br>pace-theme-flash<br>pace-theme-loading-bar<br>pace-theme-mac-osx<br>pace-theme-minimal</p>
+</blockquote>
+<p>需要安装pace模块到<strong>theme/next/source/lib</strong>文件夹下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd themes&#x2F;next</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pace source&#x2F;lib&#x2F;pace</span><br></pre></td></tr></table></figure>
+
+<p>然后修改next主题配置文件，搜索<strong>pace</strong>定位到如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pace:</span><br><span class="line">  enable: true #原始false</span><br><span class="line">  # Themes list:</span><br><span class="line">  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span><br><span class="line">  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span><br><span class="line">  theme: minimal</span><br></pre></td></tr></table></figure>
+
+<h1 id="动态背景"><a href="#动态背景" class="headerlink" title="动态背景"></a>动态背景</h1><p>Next主题默认提供了三种动态背景</p>
+<ul>
+<li><a href="https://github.com/theme-next/theme-next-canvas-nest" target="_blank" rel="noopener">Canvas-nest</a></li>
+<li><a href="https://github.com/theme-next/theme-next-three" target="_blank" rel="noopener">JavaScript 3D library</a></li>
+<li><a href="https://github.com/theme-next/theme-next-canvas-ribbon" target="_blank" rel="noopener">Canvas-ribbon</a></li>
+</ul>
+<p>按需选择，我选择的是canvas-nest，需要安装模块到<strong>theme/next/source/lib</strong>文件夹下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd themes&#x2F;next</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-canvas-nest source&#x2F;lib&#x2F;canvas-nest</span><br></pre></td></tr></table></figure>
+
+<p>然后修改next主题配置文件，搜索<strong>Canvas-nest</strong>定位到如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">canvas_nest:</span><br><span class="line">  enable: true</span><br><span class="line">  onmobile: true # Display on mobile or not</span><br><span class="line">  color: &quot;0,0,255&quot; # RGB values, use &#96;,&#96; to separate</span><br><span class="line">  opacity: 0.5 # The opacity of line: 0~1</span><br><span class="line">  zIndex: -1 # z-index property of the background</span><br><span class="line">  count: 99 # The number of lines</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -103,7 +139,9 @@
   <entry>
     <title>Hexo个人配置汇总和next皮肤设置</title>
     <url>/Hexo/2020-02-11-hexo-optimize-and-next-theme/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<p>个人的hexo博客配置汇总，便于记忆和查阅，对备份、迁移、升级或许会有帮助。</p>
+<a id="more"></a>
+<blockquote>
 <p>进入到博客文件夹里面就有hexo的相关文件，其中_config.yml统称为站点配置文件。</p>
 <p>而皮肤下的_config.yml统称为皮肤配置文件。</p>
 </blockquote>
@@ -162,6 +200,19 @@
 <h1 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h1><p>用的是next主题自带<strong>gitalk评论</strong>的配置，打开主题配置文件，搜索<strong>comments</strong>，在gitalk位置添加相关的内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gitalk:</span><br><span class="line">  enable: true</span><br><span class="line">  github_id: # GitHub repo owner</span><br><span class="line">  repo: # Repository name to store issues</span><br><span class="line">  client_id: # GitHub Application Client ID</span><br><span class="line">  client_secret: # GitHub Application Client Secret</span><br><span class="line">  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues</span><br><span class="line">  distraction_free_mode: true # Facebook-like distraction free mode</span><br><span class="line">  # Gitalk&#39;s display language depends on user&#39;s browser or system environment</span><br><span class="line">  # If you want everyone visiting your site to see a uniform language, you can set a force language value</span><br><span class="line">  # Available values: en | es-ES | fr | ru | zh-CN | zh-TW</span><br><span class="line">  language: zh-CN</span><br></pre></td></tr></table></figure>
 
+<h1 id="添加豆瓣电影"><a href="#添加豆瓣电影" class="headerlink" title="添加豆瓣电影"></a>添加豆瓣电影</h1><h2 id="安装插件hexo-douban"><a href="#安装插件hexo-douban" class="headerlink" title="安装插件hexo-douban"></a>安装插件<strong><a href="https://github.com/mythsman/hexo-douban" target="_blank" rel="noopener">hexo-douban</a></strong></h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-douban --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加站点配置文件代码"><a href="#添加站点配置文件代码" class="headerlink" title="添加站点配置文件代码"></a>添加站点配置文件代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#添加豆瓣电影</span><br><span class="line">douban:</span><br><span class="line">  user: mythsman</span><br><span class="line">  builtin: false</span><br><span class="line">  #book:</span><br><span class="line">    #title: &#39;This is my book title&#39;</span><br><span class="line">    #quote: &#39;This is my book quote&#39;</span><br><span class="line">  movie:</span><br><span class="line">    title: &#39;This is my movie title&#39;</span><br><span class="line">    quote: &#39;This is my movie quote&#39;</span><br><span class="line">  #game:</span><br><span class="line">    #title: &#39;This is my game title&#39;</span><br><span class="line">    #quote: &#39;This is my game quote&#39;</span><br><span class="line">  timeout: 10000</span><br></pre></td></tr></table></figure>
+
+<p>如果只想生成某一个页面（比如只生成电影页面），把其他的配置项注释掉即可。</p>
+<p>user: 填写豆瓣 ID。登陆豆瓣后点击个人主页，此时 url 中最后一段即是用户 ID，一般情况下会是一段数字，如果设置了个人域名的话，则个人域名即为 ID。<br>builtin: 是否将生成页面的功能嵌入 hexo s 和 hexo g 中。<br>timeout: 爬取数据的超时时间。</p>
+<h2 id="配置首页显示"><a href="#配置首页显示" class="headerlink" title="配置首页显示"></a>配置首页显示</h2><p>修改next皮肤配置文件，搜索<strong>menu:</strong></p>
+<p>添加需要的豆瓣内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || home</span><br><span class="line">  #about: &#x2F;about&#x2F; || user</span><br><span class="line">  tags: &#x2F;tags&#x2F; || tags</span><br><span class="line">  categories: &#x2F;categories&#x2F; || th</span><br><span class="line">  archives: &#x2F;archives&#x2F; || archive</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat</span><br><span class="line">  #以下是豆瓣</span><br><span class="line">  #Books: &#x2F;books     || books</span><br><span class="line">  movies: &#x2F;movies   || movie</span><br><span class="line">  #Games: &#x2F;games   || games</span><br></pre></td></tr></table></figure>
+
+<p>修改首页菜单显示为中文，修改next主题语言文件<strong>themes\next\language\zh_CN.yml</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">    home: 首页</span><br><span class="line">    archives: 归档</span><br><span class="line">    categories: 分类</span><br><span class="line">    tags: 标签</span><br><span class="line">    movies: 电影</span><br><span class="line">    books: 读书</span><br><span class="line">    games: 游戏</span><br></pre></td></tr></table></figure>
+
 
 
 <h1 id="写作模板"><a href="#写作模板" class="headerlink" title="写作模板"></a>写作模板</h1><p><code>/scaffolds/post.md</code></p>
@@ -187,7 +238,10 @@
   <entry>
     <title>ESXI更新升级</title>
     <url>/ESXI/2020-02-10-esxi-upgrade/</url>
-    <content><![CDATA[<h1 id="下载升级包"><a href="#下载升级包" class="headerlink" title="下载升级包"></a>下载升级包</h1><p>官网：<a href="https://my.vmware.com/" target="_blank" rel="noopener">https://my.vmware.com/</a></p>
+    <content><![CDATA[<p>ESXI_6.7升级到6.7update3</p>
+<a id="more"></a>
+
+<h1 id="下载升级包"><a href="#下载升级包" class="headerlink" title="下载升级包"></a>下载升级包</h1><p>官网：<a href="https://my.vmware.com/" target="_blank" rel="noopener">https://my.vmware.com/</a></p>
 <p><img src="ESXI_Upgrade_01.png" alt=""></p>
 <p>下载为zip格式，不用解压。</p>
 <h1 id="升级准备"><a href="#升级准备" class="headerlink" title="升级准备"></a>升级准备</h1><ol>
@@ -228,7 +282,10 @@
   <entry>
     <title>ESXI备份虚拟机ova模板</title>
     <url>/ESXI/2020-02-10-ESXI_Backup_OVA/</url>
-    <content><![CDATA[<h1 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h1><ol>
+    <content><![CDATA[<p>ESXI_6.7备份虚拟机ova模板</p>
+<a id="more"></a>
+
+<h1 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h1><ol>
 <li>虚拟机不能包含直通网卡，或者其他PCI设备，可以先删除后备份，备份前截图记一下。</li>
 <li>运行的虚拟机需要关闭。</li>
 </ol>
@@ -260,7 +317,10 @@
   <entry>
     <title>VPS相关软件安装记录</title>
     <url>/VPS/2019-05-07-vps-software-install/</url>
-    <content><![CDATA[<h1 id="v2ray安装记录加WebSocket-TLS-Web"><a href="#v2ray安装记录加WebSocket-TLS-Web" class="headerlink" title="v2ray安装记录加WebSocket+TLS+Web"></a>v2ray安装记录加WebSocket+TLS+Web</h1><h2 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h2><p>V2Ray 提供了一个在 Linux 中的自动化安装脚本。这个脚本会自动检测有没有安装过 V2Ray，如果没有，则进行完整的安装和配置；如果之前安装过 V2Ray，则只更新 V2Ray 二进制程序而不更新配置。</p>
+    <content><![CDATA[<p>利用VPS实现一些需求，做个简要的记录，方便后期查询。</p>
+<a id="more"></a>
+
+<h1 id="v2ray安装记录加WebSocket-TLS-Web"><a href="#v2ray安装记录加WebSocket-TLS-Web" class="headerlink" title="v2ray安装记录加WebSocket+TLS+Web"></a>v2ray安装记录加WebSocket+TLS+Web</h1><h2 id="安装脚本"><a href="#安装脚本" class="headerlink" title="安装脚本"></a>安装脚本</h2><p>V2Ray 提供了一个在 Linux 中的自动化安装脚本。这个脚本会自动检测有没有安装过 V2Ray，如果没有，则进行完整的安装和配置；如果之前安装过 V2Ray，则只更新 V2Ray 二进制程序而不更新配置。</p>
 <p>以下指令假设已在 su 环境下，如果不是，请先运行 sudo su。</p>
 <p>运行下面的指令下载并安装 V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。这两个组件是安装 V2Ray 的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -L -s https:&#x2F;&#x2F;install.direct&#x2F;go.sh)</span><br></pre></td></tr></table></figure>
@@ -317,7 +377,10 @@
   <entry>
     <title>群晖安装Transmission+Flexget</title>
     <url>/NAS/2019-05-01-synology-install-transmission-and-flexget/</url>
-    <content><![CDATA[<h1 id="Transmission安装及优化"><a href="#Transmission安装及优化" class="headerlink" title="Transmission安装及优化"></a>Transmission安装及优化</h1><h2 id="Transmisstion的安装"><a href="#Transmisstion的安装" class="headerlink" title="Transmisstion的安装"></a>Transmisstion的安装</h2><p>群晖添加套件来源<a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a></p>
+    <content><![CDATA[<p>本章主要记录群晖安装Transmission和Flex插件，实现rss订阅自动下载资源。</p>
+<a id="more"></a>
+
+<h1 id="Transmission安装及优化"><a href="#Transmission安装及优化" class="headerlink" title="Transmission安装及优化"></a>Transmission安装及优化</h1><h2 id="Transmisstion的安装"><a href="#Transmisstion的安装" class="headerlink" title="Transmisstion的安装"></a>Transmisstion的安装</h2><p>群晖添加套件来源<a href="http://packages.synocommunity.com/" target="_blank" rel="noopener">http://packages.synocommunity.com/</a></p>
 <p>在社群里就可以安装Transmission了比较简单。安装完毕后会在群晖添加名为sc-download的群组，为了使Tr有下载目录的权限，需要在控制面板→用户群组中设置sc-download对应目录的读写权限。</p>
 <p>这里说一下Transmission的下载任务备份，直接备份安装目录下的var目录（含设置文件）我的路径是：/volume1/@appstore/transmission/var，还原就直接覆盖吧，复制完后记得修改文件权限。</p>
 <h2 id="Transmission的WebUI"><a href="#Transmission的WebUI" class="headerlink" title="Transmission的WebUI"></a>Transmission的WebUI</h2><p>我使用的有两种：</p>
@@ -406,7 +469,10 @@
   <entry>
     <title>群晖初始安装记录</title>
     <url>/NAS/2019-05-01-synology-nas-installation/</url>
-    <content><![CDATA[<h1 id="获取Root权限"><a href="#获取Root权限" class="headerlink" title="获取Root权限"></a>获取Root权限</h1><ol>
+    <content><![CDATA[<p>今天有空折腾下群晖，主要原因是使用1.03b运行的6.2.2版本无法实现启用网络UPS服务器（没有允许设备的选项）。准备降级到6.2.1，也是需要功能的安装记录，下面开始。</p>
+<a id="more"></a>
+
+<h1 id="获取Root权限"><a href="#获取Root权限" class="headerlink" title="获取Root权限"></a>获取Root权限</h1><ol>
 <li><p>开启SSH功能，端口22。</p>
 </li>
 <li><p>连接SSH用现有的管理员登陆。</p>
@@ -441,7 +507,10 @@
   <entry>
     <title>群晖搭建Hexo博客</title>
     <url>/NAS/2019-04-23-synology-nas-build-hexo-blog/</url>
-    <content><![CDATA[<h1 id="群晖安装相关套件"><a href="#群晖安装相关套件" class="headerlink" title="群晖安装相关套件"></a>群晖安装相关套件</h1><ol>
+    <content><![CDATA[<p>利用群晖NAS和Hexo快速搭建博客</p>
+<a id="more"></a>
+
+<h1 id="群晖安装相关套件"><a href="#群晖安装相关套件" class="headerlink" title="群晖安装相关套件"></a>群晖安装相关套件</h1><ol>
 <li>Web Station，用来在群晖服务器上发布博客，安装后自带Nginx HTTP后端服务器。</li>
 <li>PHP 5.6、7.0、7.2，都可以一并安装。</li>
 <li>Node.js v8，也是Moments要求安装的版本，安装后npm更新到5.6.0。</li>

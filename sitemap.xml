@@ -2,30 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
+    <loc>https://blog.mrzorg.top/Hexo/2020-02-11-hexo-optimize-and-next-theme/</loc>
     
-    <lastmod>2020-02-12T16:28:56.000Z</lastmod>
+    <lastmod>2020-02-14T15:31:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.mrzorg.top/ESXI/2020-02-10-esxi-upgrade/</loc>
     
-    <lastmod>2020-02-12T16:26:08.000Z</lastmod>
+    <lastmod>2020-02-14T15:30:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mrzorg.top/Hexo/2020-02-11-hexo-optimize-and-next-theme/</loc>
+    <loc>https://blog.mrzorg.top/ESXI/2020-02-10-ESXI_Backup_OVA/</loc>
     
-    <lastmod>2020-02-12T15:52:53.000Z</lastmod>
+    <lastmod>2020-02-14T15:30:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mrzorg.top/VPS/2019-05-07-vps-software-install/</loc>
+    
+    <lastmod>2020-02-14T15:12:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-nas-installation/</loc>
+    
+    <lastmod>2020-02-14T15:12:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-install-transmission-and-flexget/</loc>
+    
+    <lastmod>2020-02-14T15:11:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
+    
+    <lastmod>2020-02-14T15:11:19.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.mrzorg.top/Hexo/2020-02-12-hero-next-theme-settings/</loc>
     
-    <lastmod>2020-02-12T11:16:06.000Z</lastmod>
+    <lastmod>2020-02-14T14:57:32.000Z</lastmod>
     
   </url>
   
@@ -47,34 +75,6 @@
     <loc>https://blog.mrzorg.top/about/index.html</loc>
     
     <lastmod>2020-02-12T05:44:21.956Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mrzorg.top/VPS/2019-05-07-vps-software-install/</loc>
-    
-    <lastmod>2020-02-11T12:30:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-nas-installation/</loc>
-    
-    <lastmod>2020-02-11T12:28:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-install-transmission-and-flexget/</loc>
-    
-    <lastmod>2020-02-11T12:25:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mrzorg.top/ESXI/2020-02-10-ESXI_Backup_OVA/</loc>
-    
-    <lastmod>2020-02-11T12:22:50.000Z</lastmod>
     
   </url>
   
