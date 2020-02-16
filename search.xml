@@ -527,31 +527,34 @@
 <p><img src="Hexo_02.png" alt=""></p>
 <p>PHP各个版本都设置，这个是发布各种php框架的web所需要的。</p>
 <h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>群晖需要用root账户进入SSH通过命令安装Hexo，群晖需要获取root权限具体方法请百度。<br>安装代码：</p>
-<pre><code>$ npm install -g hexo-cli</code></pre><p>有提示不用理会，可自行搜索学习。<br>hexo安装文件位置为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>有提示不用理会，可自行搜索学习。<br>hexo安装文件位置为：</p>
 <blockquote>
 <p>/volume1/@appstore/Node.js_v8/usr/local/lib/node_modules/hexo-cli/bin/hexo</p>
 </blockquote>
-<p>安装好后hexo命令不是全局的需要在群晖中做个软连接，命令如下：</p>
-<pre><code>ln -s /volume1/@appstore/Node.js_v8/usr/local/lib/node_modules/hexo-cli/bin/hexo /usr/local/bin/hexo</code></pre><p>至此Hexo博客框架已搭好，下一步就是建立博客并通过<strong>Web Station</strong>发布</p>
+<p>安装好后hexo命令不是全局的需要在群晖中做个软连接（也可能不需要请尝试），命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -s &#x2F;volume1&#x2F;@appstore&#x2F;Node.js_v8&#x2F;usr&#x2F;local&#x2F;lib&#x2F;node_modules&#x2F;hexo-cli&#x2F;bin&#x2F;hexo &#x2F;usr&#x2F;local&#x2F;bin&#x2F;hexo</span><br></pre></td></tr></table></figure>
+
+
+<p>至此Hexo博客框架已搭好，下一步就是建立博客并通过<strong>Web Station</strong>发布</p>
 <h1 id="Hexo博客的建立"><a href="#Hexo博客的建立" class="headerlink" title="Hexo博客的建立"></a>Hexo博客的建立</h1><p>Web Station安装后在/volume1下有个web文件夹，是默认发布的网页。<br>按个人喜好博客可在此文件夹里发布，也可以新建文件夹：</p>
-<pre><code>mkdir /volume1/web/blog
-cd  /volume1/web/blog
-hexo init # 创建Hexo所需文件</code></pre><p>Hexo博客就搭建完毕，是不是很简单？</p>
-<pre><code>hexo s
-hexo s -p4001 # 如果默认的端口被占用可以改端口</code></pre><p>就可以启动局域网hexo服务（仅供预览使用），浏览器进入就可以看到博客了，端口是4000，可以安装各种皮肤。</p>
-<p>Ctrl+C 停止hexo服务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir &#x2F;volume1&#x2F;web&#x2F;blog</span><br><span class="line">cd  &#x2F;volume1&#x2F;web&#x2F;blog</span><br><span class="line">hexo init # 创建Hexo所需文件</span><br></pre></td></tr></table></figure>
+
+
+<p>Hexo博客就搭建完毕，是不是很简单？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo s</span><br><span class="line">hexo s -p4001 # 如果默认的端口被占用可以改端口</span><br></pre></td></tr></table></figure>
+
+
+<p>就可以启动局域网hexo服务（仅供预览使用），浏览器进入就可以看到博客了，端口是4000，可以安装各种皮肤。</p>
+<p><code>Ctrl+C</code> 停止hexo服务。</p>
 <h1 id="群晖Web-Station发布"><a href="#群晖Web-Station发布" class="headerlink" title="群晖Web Station发布"></a>群晖Web Station发布</h1><p>创建文章</p>
-<pre><code>hexo new “文章名字”</code></pre><p>文章后缀.md, 保存在 /volume1/web/blog/source/_posts  </p>
+<p><code>hexo new “文章名字”</code><br>文章后缀.md, 保存在 /volume1/web/blog/source/_posts  </p>
 <p>此时还没有产生网页文件，需要通过命令：</p>
-<pre><code>hexo g</code></pre><p>然后在blog文件夹下生成public文件夹，就可以用<strong>Web Station</strong>发布博客了。如果需要发布到Github，去套件安装Git Server，然后直接命令<code>hexo d</code></p>
-<h1 id="命令汇总"><a href="#命令汇总" class="headerlink" title="命令汇总"></a>命令汇总</h1><pre><code>npm install -g hexo-cli
-ln -s /volume1/@appstore/Node.js_v8/usr/local/lib/node_modules/hexo-cli/bin/hexo /usr/local/bin/hexo
-mkdir /volume1/web/blog
-cd  /volume1/web/blog
-hexo init # 创建Hexo所需文件
-hexo s # 启动博客服务
-hexo g # 发布博客
-hexo clean # 清空发布，会删除public文件夹</code></pre>]]></content>
+<p><code>hexo g</code><br>然后在blog文件夹下生成public文件夹，就可以用<strong>Web Station</strong>发布博客了。如果需要发布到Github，去套件安装Git Server，然后直接命令<code>hexo d</code></p>
+<h1 id="命令汇总"><a href="#命令汇总" class="headerlink" title="命令汇总"></a>命令汇总</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">ln -s &#x2F;volume1&#x2F;@appstore&#x2F;Node.js_v8&#x2F;usr&#x2F;local&#x2F;lib&#x2F;node_modules&#x2F;hexo-cli&#x2F;bin&#x2F;hexo &#x2F;usr&#x2F;local&#x2F;bin&#x2F;hexo</span><br><span class="line">mkdir &#x2F;volume1&#x2F;web&#x2F;blog</span><br><span class="line">cd  &#x2F;volume1&#x2F;web&#x2F;blog</span><br><span class="line">hexo init # 创建Hexo所需文件</span><br><span class="line">hexo s # 启动博客服务</span><br><span class="line">hexo g # 发布博客</span><br><span class="line">hexo clean # 清空发布，会删除public文件夹</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>NAS</category>
       </categories>

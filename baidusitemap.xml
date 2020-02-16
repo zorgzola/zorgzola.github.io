@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
+    <lastmod>2020-02-16</lastmod>
+  </url>  <url>
     <loc>https://blog.mrzorg.top/Hexo/2020-02-11-hexo-optimize-and-next-theme/</loc>
     <lastmod>2020-02-14</lastmod>
   </url>  <url>
@@ -17,9 +20,6 @@
     <lastmod>2020-02-14</lastmod>
   </url>  <url>
     <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-install-transmission-and-flexget/</loc>
-    <lastmod>2020-02-14</lastmod>
-  </url>  <url>
-    <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
     <lastmod>2020-02-14</lastmod>
   </url>  <url>
     <loc>https://blog.mrzorg.top/Hexo/2020-02-12-hero-next-theme-settings/</loc>
