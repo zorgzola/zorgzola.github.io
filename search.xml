@@ -1,6 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Kodi皮肤Aeon MQ8 Multi Mod安装大篇</title>
+    <url>/PC%E5%BD%B1%E9%9F%B3%E7%8E%A9%E6%B3%95/Kodi/2020-02-20-kodi-skin-aeon-mq-8-multi-mod-chinese-settings/</url>
+    <content><![CDATA[<p>kodi的强大是毋庸置疑的，而多样化的皮肤也是它的强大之一，本篇就对Aeon MQ8皮肤做个设置大篇，当然必须得中文化。</p>
+<img src="/PC%E5%BD%B1%E9%9F%B3%E7%8E%A9%E6%B3%95/Kodi/2020-02-20-kodi-skin-aeon-mq-8-multi-mod-chinese-settings/Kodi_Aeon_MQ8_post.png" class="">
+<a id="more"></a>
+
+<p>很早就对高清视频产生了浓厚的兴趣。第一次用17寸的CRT看720p的【螳螂】视频那清晰度超过了DVD，从此迷上了，开始研究起高清视频、电影怎么下载、怎么播放、怎么硬解。</p>
+<p>现在回顾过去，从当时的思路论坛、CHD论坛到现在的各种PT，也有了客厅家庭影院，有了软路由、NAS，一路走来看着淘汰的DVD影碟、刻录的D5、D9，或许没有什么值得收获的，但是人生不也是这样么，爱好是不可或缺的。</p>
+<p>好了，Kodi皮肤：<code>Aeon MQ 8 Multi-Mod</code>现在开始。当然了这些资源都是kodi社区大师们的杰作，皮肤作者<a href="https://forum.kodi.tv/showthread.php?tid=342529" target="_blank" rel="noopener">@latts9923</a>，我只是学习应用，并让它显示中文，也许有些方法很愚蠢，还请高手多多指教。本篇阅读需要一定的kodi基础知识。先放几张<code>Aeon MQ 8</code>和<code>Multi Mod</code>的原版预览图：</p>
+<p><img src="http://www.marcosqui.com.br/miniaturas/aeonmq8/screenshot000.jpg" alt=""></p>
+<p><img src="http://www.marcosqui.com.br/miniaturas/aeonmq8/screenshot001.jpg" alt=""></p>
+<p><img src="https://holybid.com/images/screenshots/Aeon_MQ8_audio-subtitle_flags_2.png" alt=""></p>
+<p><img src="https://holybid.com/images/screenshots/Aeon_MQ8_video_info.png" alt=""></p>
+<p><img src="https://holybid.com/images/screenshots/Aeon_MQ8_video_info_2.png" alt=""></p>
+<h1 id="Kodi下载"><a href="#Kodi下载" class="headerlink" title="Kodi下载"></a>Kodi下载</h1><p>官方网址：<a href="https://kodi.tv/" target="_blank" rel="noopener">https://kodi.tv/</a></p>
+<blockquote>
+<p>以下演示基于Kodi 18 Leia Mac版本</p>
+</blockquote>
+<div class="tabs" id="下载"><ul class="nav-tabs"><li class="tab"><a href="#下载-1">下载正式版</a></li><li class="tab"><a href="#下载-2">下载每夜版</a></li></ul><div class="tab-content"><div class="tab-pane" id="下载-1"><p><a href="http://mirrors.kodi.tv/releases/" target="_blank" rel="noopener">http://mirrors.kodi.tv/releases/</a></p>
+<p>按操作系统选择下载</p>
+<p><img src="Kodi_download_01.png" alt=""></p></div><div class="tab-pane" id="下载-2"><p><a href="http://mirrors.kodi.tv/nightlies/" target="_blank" rel="noopener">http://mirrors.kodi.tv/nightlies/</a></p>
+<p>按操作系统选择下载</p></div></div></div>
+
+<p>现在最新正式版是18.5版本，下载好了安装就行。</p>
+<h2 id="不同系统的Userdata路径"><a href="#不同系统的Userdata路径" class="headerlink" title="不同系统的Userdata路径"></a>不同系统的Userdata路径</h2><p>来自<a href="https://kodi.wiki/view/Userdata" target="_blank" rel="noopener">Kodi wiki</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>Operating system</strong></th>
+<th><strong>File path</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Android</strong></td>
+<td>Android/data/org.xbmc.kodi/files/.kodi/userdata/ <em>(see <a href="https://kodi.wiki/view/Userdata#Android_location" target="_blank" rel="noopener">note</a>)</em></td>
+</tr>
+<tr>
+<td><strong>iOS</strong></td>
+<td>/private/var/mobile/Library/Preferences/Kodi/userdata/</td>
+</tr>
+<tr>
+<td><strong>LibreELEC</strong></td>
+<td>/storage/.kodi/userdata/</td>
+</tr>
+<tr>
+<td><strong>Linux</strong></td>
+<td>~/.kodi/userdata/</td>
+</tr>
+<tr>
+<td><strong>OSMC</strong></td>
+<td>/home/osmc/.kodi/userdata/</td>
+</tr>
+<tr>
+<td><strong>Mac</strong></td>
+<td>/Users/<your_user_name>/Library/Application Support/Kodi/userdata/ <em>(see <a href="https://kodi.wiki/view/Mac_FAQ#Lion_userdata" target="_blank" rel="noopener">note</a>)</em></td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td>%APPDATA%\Kodi\userdata</td>
+</tr>
+</tbody></table>
+<h2 id="皮肤路径"><a href="#皮肤路径" class="headerlink" title="皮肤路径"></a>皮肤路径</h2><p>不同操作系统的插件（皮肤）路径都一样：<code>kodi\addons</code></p>
+<h1 id="Aeon-MQ8皮肤下载"><a href="#Aeon-MQ8皮肤下载" class="headerlink" title="Aeon MQ8皮肤下载"></a>Aeon MQ8皮肤下载</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>进入Kodi的插件管理（Add-ons）下载，操作路径是：</p>
+<p><code>Install from repository</code>&rarr;<code>Look and feel</code>&rarr;<code>Skin</code>&rarr;<code>Aeon MQ8</code></p>
+<p>目前版本是2.9.0</p>
+<p>下载速度视网络而定，下载插件最好挂代理。</p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>下载<a href="http://mirrors.kodi.tv/addons/leia/skin.aeonmq8/skin.aeonmq8-2.9.0.zip" target="_blank" rel="noopener">zip包</a>然后解压到<code>addons</code>目录下。</p>
+<p>然后进入插件管理启用，操作路径：</p>
+<p><code>My add-ons</code>&rarr;<code>Look and feel</code>&rarr;<code>Skin</code>&rarr;<code>Aeon MQ8</code>&rarr;<code>Enabel</code></p>
+<p><img src="Aeon_MQ8_download.png" alt=""></p>
+<p>这样就可以启用皮肤插件了。</p>
+<p>先别着急着启用皮肤，我们还需要<code>Multi-mod</code>。</p>
+<h1 id="Aeon-MQ8-Multi-Mod下载"><a href="#Aeon-MQ8-Multi-Mod下载" class="headerlink" title="Aeon MQ8 Multi-Mod下载"></a>Aeon MQ8 Multi-Mod下载</h1><p>进入kodi论坛作者<a href="https://forum.kodi.tv/showthread.php?tid=342529" target="_blank" rel="noopener">发布页</a>。</p>
+<p>因为该mod一直在改进和更新，所以没有完整的大包，最新改动是<code>02/16/20</code>。</p>
+<p><img src="Aeon_MQ8_update.png" alt=""></p>
+<ol>
+<li><p>先下载第一个<code>04/21/19</code>的稳定大更新版本：</p>
+<p><a href="https://holybid.com/kodi/downloads/Aeon_MQ_8_Multi-Mod.zip" target="_blank" rel="noopener">https://holybid.com/kodi/downloads/Aeon_MQ_8_Multi-Mod.zip</a></p>
+</li>
+<li><p>然后解压覆盖到皮肤文件夹<code>skin.aeonmq8</code>里。</p>
+</li>
+<li><p>下面的更新最好都下载依次覆盖，后续有更新就下载覆盖。</p>
+</li>
+</ol>
+<p>现在可以启用看一下初始界面，操作路径：</p>
+<p>进入设置：<code>Settings</code>&rarr;<code>Interface</code>&rarr;<code>Skin</code></p>
+<p>选择后，会显示预览。顶部会提示是否保留设置，我们选择是。首次运行皮肤会进行初始化：</p>
+<p><img src="Aeon_MQ8_first_run.png" alt=""></p>
+<p>这个过程不要操作键盘、鼠标或遥控器。</p>
+<p><img src="Kodi_home_movies_01.png" alt=""></p>
+<p>还可以纵向排列</p>
+<p><img src="Kodi_home_movies_02.png" alt=""></p>
+<p>这个皮肤是不是漂亮多了！</p>
+<p><font color=#ff0000 size=5>强调！</font> Kodi顶部会提示安装一些插件，建议遇到的都安装，下载不了或慢挂代理。</p>
+<p><img src="Kodi_add_ons_01.png" alt=""></p>
+<p>现在还是英文状态，先不急，我们安先装几个插件。</p>
+<h1 id="插件的安装"><a href="#插件的安装" class="headerlink" title="插件的安装"></a>插件的安装</h1><h2 id="安装插件源"><a href="#安装插件源" class="headerlink" title="安装插件源"></a>安装插件源</h2><p>下载插件源zip文件：</p>
+<ol>
+<li><p>mod作者源：<a href="https://holybid.com/kodi/repo/repository.lattsrepo/repository.lattsrepo-1.0.9.zip" target="_blank" rel="noopener">Latts Kodi Repo</a>。</p>
+</li>
+<li><p>强大的Artwork Beef源：<a href="https://github.com/rmrector/repository.rector.stuff/raw/master/latest/repository.rector.stuff-latest.zip" target="_blank" rel="noopener">Rector Stuff</a> 。</p>
+<p>什么是Artwork Beef了解下<a href="https://rmrector.github.io/script.artwork.beef/" target="_blank" rel="noopener">https://rmrector.github.io/script.artwork.beef/</a></p>
+</li>
+<li><p><a href="https://github.com/kodi-community-addons/repository.marcelveldt/raw/master/repository.marcelveldt/repository.marcelveldt-1.0.1.zip" target="_blank" rel="noopener">Marcel veldts Repo</a>。</p>
+</li>
+</ol>
+<p>然后安装源，选择下载的zip不用解压，操作路径：</p>
+<p>进入设置：<code>Settings</code>&rarr;<code>Add-Ons</code>&rarr;<code>Install From Zip File</code></p>
+<p>安装好后的样子</p>
+<p><img src="Aeon_add_ons_repo.png" alt=""></p>
+<h2 id="几个插件安装"><a href="#几个插件安装" class="headerlink" title="几个插件安装"></a>几个插件安装</h2><ol>
+<li><p><strong>Artwork Beef</strong></p>
+<p>在<code>Rector Stuff里</code>，进入<code>Program Add-Ons</code></p>
+</li>
+<li><p><strong>Media Icons Pack For Aeon Mq 7-Coloured</strong></p>
+<p>在<code>Latts Kodi Repo</code>里，进入<code>Look and feel</code>&rarr;<code>Image Collections</code>。</p>
+</li>
+</ol>
+<h3 id="Artwork-Beef设置"><a href="#Artwork-Beef设置" class="headerlink" title="Artwork Beef设置"></a>Artwork Beef设置</h3><p>如有错误请指正。</p>
+<p>进入设置：<code>Settings</code>&rarr;<code>Add-Ons</code>&rarr;<code>My add-ons</code>&rarr;<code>Program Add-Ons</code>&rarr;<code>Artwork Beef</code>&rarr;<code>Configure</code></p>
+<h4 id="General"><a href="#General" class="headerlink" title="General"></a>General</h4><p>打开这两项：</p>
+<p><img src="Kodi_Artwork_Beef_Settings_01.png" alt=""></p>
+<h4 id="Tv-shows、Movies等"><a href="#Tv-shows、Movies等" class="headerlink" title="Tv shows、Movies等"></a>Tv shows、Movies等</h4><p>选择下载各种插图的数量，我选择5：</p>
+<p><img src="Kodi_Artwork_Beef_Settings_02.png" alt=""></p>
+<p><code>Artwork Beef</code>还有其他高级的设定，大家慢慢摸索。</p>
+<h1 id="中文化"><a href="#中文化" class="headerlink" title="中文化"></a>中文化</h1><p>kodi和Aeon MQ皮肤都有对应的中文语言包。我的启用方法可能比较笨拙，请笑纳。</p>
+<p>设置中文分为Kodi(自带皮肤)语言包和第三方皮肤语言包。</p>
+<h2 id="Kodi设置中文"><a href="#Kodi设置中文" class="headerlink" title="Kodi设置中文"></a>Kodi设置中文</h2><p>首先安装Kodi中文包：<br>进入设置：<code>Settings</code>&rarr;<code>Add-Ons</code>&rarr;<code>Install from repository</code>&rarr;<code>Kodi Add-on repository</code>&rarr;<code>Look and feel</code>&rarr;<code>Languages</code>&rarr;<code>Chinese(Simple)</code></p>
+<p>安装完毕后会提问是否启用，我们暂不启用。选择<code>No</code></p>
+<p>对于自带的皮肤选择语言后会显示乱码，我们先要将字体选择为<code>Arial based</code>再选择语言为中文。先切换回自带皮肤感受下。</p>
+<ol>
+<li>进入设置：<code>Settings</code>&rarr;<code>Interface</code>&rarr;<code>Skin</code>&rarr;<code>Fonts</code>&rarr;<code>Arial based</code>。</li>
+<li>进入设置：<code>Settings</code>&rarr;<code>Interface</code>&rarr;<code>Regional</code>&rarr;<code>Languages</code>&rarr;<code>Chinese(Simple)</code>。</li>
+</ol>
+<h2 id="Aeon-MQ8-Multi-Mod设置中文"><a href="#Aeon-MQ8-Multi-Mod设置中文" class="headerlink" title="Aeon MQ8 Multi-Mod设置中文"></a>Aeon MQ8 Multi-Mod设置中文</h2><p>Aeon MQ8的皮肤本身就有中文语言包，是在皮肤文件夹下的language的。只是字体不支持中文显示，所以我们需要添加支持中文的字体，我选择的是『方正韵动中黑简体』。然而Mod修改版增加了很多选项，需要汉化strings.po，这个我想摸透了皮肤功能会花时间逐步汉化。</p>
+<p>下面开始，先退出kodi。</p>
+<h3 id="更换字体法"><a href="#更换字体法" class="headerlink" title="更换字体法"></a>更换字体法</h3><p>将皮肤字体文件夹里的关键字体替换为自己想要的字体。进入皮肤目录：</p>
+<p><code>kodi\addons\skin.aeonmq8\fonts</code>，将下载的字体复制四份并修改为以下图片标示的文件名。然后替换，做好原文件备份。</p>
+<p><img src="Aeon_MQ8_fonts_01.png" alt=""></p>
+<p>替换后开启Kodi，选择我们的<code>Aeon MQ 8</code>皮肤，进去应该是中文了。</p>
+<p>这个方法我没有做很多的测试，可能会有遗漏。</p>
+<h3 id="修改字体配置文件法"><a href="#修改字体配置文件法" class="headerlink" title="修改字体配置文件法"></a>修改字体配置文件法</h3><p>我们看到fonts文件夹下有很多字体，那些都是皮肤多样性的表现，可惜都不含有中文字体，不做修改的话遇到中文就乱码。皮肤的文字应该展示选择什么字体是由<code>Font.xml</code>这个配置文件控制的，我们修改其中的字体指向就可以显示中文了。</p>
+<p>我们把需要的字体复制一份到<code>fonts</code>文件夹下，名字可更改为<code>arial-zh.ttf</code>。</p>
+<p>然后用xcode或notepad++打开<code>Font.xml</code>。路径：<code>kodi\addons\skin.aeonmq8\xml</code>。</p>
+<p>用正则表达式替换所有<code>.ttf</code>字体为<code>arial-zh.ttf</code>，做好原文件备份。正则表达式如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;filename&gt;.*.ttf&lt;&#x2F;filename&gt;         #查找所有ttf字体</span><br><span class="line">&lt;filename&gt;arial-zh.ttf&lt;&#x2F;filename&gt;   #替换为arial-zh.ttf</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这个办法可以保证所有显示都有中文字体，因为只有一种字体所以皮肤的多样化就不能体现。</p>
+<h3 id="完美方法"><a href="#完美方法" class="headerlink" title="完美方法"></a>完美方法</h3><p>现在还没实现，因为太考审美，还有就是很繁琐。</p>
+<p>方法就是寻找和原字体类似的中文字体，把<code>fonts</code>文件夹里面的字体都替换。甚至把原英文字体和中文字体合并，</p>
+<h2 id="strings-po缺失的汉化补充"><a href="#strings-po缺失的汉化补充" class="headerlink" title="strings.po缺失的汉化补充"></a>strings.po缺失的汉化补充</h2><p>后续有时间我在汉化吧，或者你想上手可以这样做：</p>
+<ol>
+<li>复制英文语言包strings.po中的mod字段以下到中文语言包strings.po中。</li>
+</ol>
+<p><img src="Aeon_strings.po.png" alt=""></p>
+<ol start="2">
+<li>逐个翻译吧。</li>
+</ol>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>安装已经完成下一篇会做个对皮肤相关功能开启的教程，谢谢阅读。</p>
+]]></content>
+      <categories>
+        <category>PC影音玩法</category>
+        <category>Kodi</category>
+      </categories>
+      <tags>
+        <tag>Kodi</tag>
+        <tag>NAS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo的Next主题美化设置</title>
     <url>/Hexo/2020-02-12-hero-next-theme-settings/</url>
     <content><![CDATA[<p>Hexo主题我还是喜欢next，主要是简洁，我是初学者所以暂时做简单的改动。<br>主要通过修改next的配置文件<strong>_config.yml</strong> 来达成。我安装的next版本是v7.7.1。</p>
@@ -168,7 +340,7 @@
 <h2 id="Hexo选择主题"><a href="#Hexo选择主题" class="headerlink" title="Hexo选择主题"></a>Hexo选择主题</h2><p>修改站点配置文件，默认是landscape。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 
-<h2 id="next主题设置"><a href="#next主题设置" class="headerlink" title="next主题设置"></a>next主题设置</h2><p>查看另一篇文章Hexo的Next皮肤美化设置</p>
+<h2 id="next主题设置"><a href="#next主题设置" class="headerlink" title="next主题设置"></a>next主题设置</h2><p>查看另一篇文章<a href="https://blog.mrzorg.top/Hexo/2020-02-12-hero-next-theme-settings/">Hexo的Next主题美化设置</a></p>
 <h1 id="SEO设置"><a href="#SEO设置" class="headerlink" title="SEO设置"></a>SEO设置</h1><p>主要是百度和谷歌。</p>
 <h2 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h2><p>安装站点地图插件：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
