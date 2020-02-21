@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
+    <lastmod>2020-02-21</lastmod>
+  </url>  <url>
     <loc>https://blog.mrzorg.top/PC%E5%BD%B1%E9%9F%B3%E7%8E%A9%E6%B3%95/Kodi/2020-02-20-kodi-skin-aeon-mq-8-multi-mod-chinese-settings/</loc>
-    <lastmod>2020-02-20</lastmod>
+    <lastmod>2020-02-21</lastmod>
   </url>  <url>
     <loc>https://blog.mrzorg.top/Hexo/2020-02-11-hexo-optimize-and-next-theme/</loc>
     <lastmod>2020-02-20</lastmod>
   </url>  <url>
     <loc>https://blog.mrzorg.top/VPS/2019-05-07-vps-software-install/</loc>
     <lastmod>2020-02-20</lastmod>
-  </url>  <url>
-    <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
-    <lastmod>2020-02-16</lastmod>
   </url>  <url>
     <loc>https://blog.mrzorg.top/ESXI/2020-02-10-esxi-upgrade/</loc>
     <lastmod>2020-02-14</lastmod>
