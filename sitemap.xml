@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-install-transmission-and-flexget/</loc>
+    
+    <lastmod>2020-05-29T08:15:23.004Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
     
     <lastmod>2020-05-24T11:53:54.331Z</lastmod>
@@ -82,13 +89,6 @@
     <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-nas-installation/</loc>
     
     <lastmod>2020-02-14T15:12:29.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-install-transmission-and-flexget/</loc>
-    
-    <lastmod>2020-02-14T15:11:57.000Z</lastmod>
     
   </url>
   

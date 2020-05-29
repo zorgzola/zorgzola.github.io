@@ -2672,7 +2672,7 @@
       </tags>
   </entry>
   <entry>
-    <title>群晖安装Transmission+Flexget</title>
+    <title>群晖安装Transmission+Flexget（更新python3.6的安装方法）</title>
     <url>/NAS/2019-05-01-synology-install-transmission-and-flexget/</url>
     <content><![CDATA[<p>本章主要记录群晖安装Transmission和Flex插件，实现rss订阅自动下载资源。</p>
 <a id="more"></a>
@@ -2692,69 +2692,73 @@
 <li>另一种是客户端形式</li>
 </ol>
 <p>客户端名字是Transmission Remote GUI，项目地址：<a href="https://github.com/transmission-remote-gui/transgui" target="_blank" rel="noopener">https://github.com/transmission-remote-gui/transgui</a></p>
-<h1 id="Flexget安装"><a href="#Flexget安装" class="headerlink" title="Flexget安装"></a>Flexget安装</h1><p>官方网站<a href="https://flexget.com/，Flexget的功能很多需要慢慢学习" target="_blank" rel="noopener">https://flexget.com/，Flexget的功能很多需要慢慢学习</a></p>
-<p>Flexget需要python的支持，群晖可以在套件里安装，官方的说明：FlexGet supports Python 2.7, 3.3, 3.4 and 3.5. Python 3.6 is not yet supported，正好群晖里的版本是3.5.1-0108。</p>
-<p>官方有两种推荐方法一种是在Docker里安装，一种是Local Python package，还有一种不推荐的方法就是安装套件社群里的安装包。我选择推荐的第二种，有一点小变动，也是网上搜索的</p>
-<p>，往下看：</p>
-<h2 id="安装前的准备python"><a href="#安装前的准备python" class="headerlink" title="安装前的准备python"></a>安装前的准备python</h2><ul>
-<li>pip安装和更新</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;volume1&#x2F;@appstore&#x2F;py3k&#x2F;usr&#x2F;local&#x2F;bin</span><br><span class="line">.&#x2F;python3 -m ensurepip</span><br><span class="line">.&#x2F;python3 -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<h1 id="Flexget安装"><a href="#Flexget安装" class="headerlink" title="Flexget安装"></a>Flexget安装</h1><p>新版FlexGet支持Python 3.6-3.8，群晖的套件中心还是3.5版的，根据官方文档更新了本教程。</p>
+<h2 id="python3-6安装"><a href="#python3-6安装" class="headerlink" title="python3.6安装"></a>python3.6安装</h2><p>首先卸载群晖套件安装的python，然后还是通过原来的方法安装3.6版，就是使用Entware-NG的opkg源。</p>
+<ol>
+<li><pre><code>mkdir -p /volume1/@entware-ng/opt
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2. 如果原来安装过可以先清除相关文件，然后创建软连接：</span><br></pre></td></tr></table></figure>
+rm -rf /opt
+ln -sf /volume1/@entware-ng/opt /opt
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">3. 安装Entware-NG的opkg源</span><br><span class="line"></span><br><span class="line">   - for armv5</span><br></pre></td></tr></table></figure>
+wget -O - http://pkg.entware.net/binaries/armv5/installer/entware_install.sh | /bin/sh
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- for armv7</span><br></pre></td></tr></table></figure>
+wget -O - http://pkg.entware.net/binaries/armv7/installer/entware_install.sh | /bin/sh
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- for x86-32</span><br></pre></td></tr></table></figure>
+wget -O - http://pkg.entware.net/binaries/x86-32/installer/entware_install.sh | /bin/sh
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- for x86-64</span><br></pre></td></tr></table></figure>
+wget -O - http://pkg.entware.net/binaries/x86-64/installer/entware_install.sh | /bin/sh
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- for MIPS</span><br></pre></td></tr></table></figure>
+wget -O - http://pkg.entware.net/binaries/mipsel/installer/installer.sh | /bin/sh
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   群晖一般选择的是&#96;x86-64&#96;。</span><br><span class="line"></span><br><span class="line">4. 由于DSM6.0开始&#96;&#x2F;etc&#x2F;rc.local&#96; 作为引导我们想要的程序已经不行了。需要制作自定义启动脚本，直接用vi来编辑：</span><br></pre></td></tr></table></figure>
+sudo vi /usr/local/etc/rc.d/entware-startup.sh
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">加入以下代码：</span><br></pre></td></tr></table></figure>
+#!/bin/sh
+</code></pre></li>
+</ol>
+<p>case $1 in<br>    start)<br>    mkdir -p /opt<br>    mount -o bind /volume1/@entware-ng/opt /opt<br>    /opt/etc/init.d/rc.unslung start<br>    ;;<br>    stop)<br>    ;;<br>esac</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">5. 在&#96;&#x2F;root&#x2F;.profile&#96;文件末尾添加：</span><br></pre></td></tr></table></figure>
+<p>   . /opt/etc/profile<br>   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">   它将添加&#96;&#x2F;opt&#x2F;bin&#96;并添加&#96;&#x2F;opt&#x2F;sbin&#96;到PATH变量以进行交互式登录。</span><br><span class="line"></span><br><span class="line">最后重启！</span><br><span class="line"></span><br><span class="line">## 开始安装Flexget</span><br><span class="line"></span><br><span class="line">使用root账户登录ssh：</span><br></pre></td></tr></table></figure><br>opkg install python3<br>opkg install python3-dev<br>opkg install python3-pip<br>opkg install gcc</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>rm /opt/bin/python<br>ln -s /opt/bin/python3 /opt/bin/python</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>pip3 install -–upgrade pip<br>pip install setuptools</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>pip install flexget<br>pip install feedparser==6.0.0b1</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">通过&#96;flexget -V&#96; 验证是否安装成功。</span><br><span class="line"></span><br><span class="line">最后安装</span><br></pre></td></tr></table></figure>
+<p>pip install transmissionrpc</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">结束，然后直接跳转到运行教程。</span><br><span class="line"></span><br><span class="line">## 以下是老教程</span><br><span class="line"></span><br><span class="line">官方网站https:&#x2F;&#x2F;flexget.com&#x2F;，Flexget的功能很多需要慢慢学习</span><br><span class="line"></span><br><span class="line">Flexget需要python的支持，群晖可以在套件里安装，官方的说明：FlexGet supports Python 2.7, 3.3, 3.4 and 3.5. Python 3.6 is not yet supported，正好群晖里的版本是3.5.1-0108。</span><br><span class="line"></span><br><span class="line">官方有两种推荐方法一种是在Docker里安装，一种是Local Python package，还有一种不推荐的方法就是安装套件社群里的安装包。我选择推荐的第二种，有一点小变动，也是网上搜索的</span><br><span class="line"></span><br><span class="line">[教程]: http:&#x2F;&#x2F;www.gebi1.com&#x2F;thread-264073-1-1.html</span><br><span class="line"></span><br><span class="line">，往下看：</span><br><span class="line"></span><br><span class="line">## 安装前的准备python</span><br><span class="line"></span><br><span class="line">- pip安装和更新</span><br></pre></td></tr></table></figure>
+<p>cd /volume1/@appstore/py3k/usr/local/bin<br>./python3 -m ensurepip<br>./python3 -m pip install –upgrade pip</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 顺便创建一个easy_install的软链接，万一以后使用easy_install安装软件也方便了</span><br></pre></td></tr></table></figure>
+<p>ln -sf easy_install-3.5 easy_install</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## virtualenv的方式安装flexget</span><br><span class="line"></span><br><span class="line">以下命令都在目录&#x2F;volume1&#x2F;@appstore&#x2F;py3k&#x2F;usr&#x2F;local&#x2F;bin下</span><br><span class="line"></span><br><span class="line">- 安装virtualenv</span><br></pre></td></tr></table></figure>
+<p>./pip3.5 install virtualenv</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 创建Flexget的virtualenv环境，我是安装在&#x2F;volume1目录下，可以共享，方便日志查看。</span><br></pre></td></tr></table></figure>
+<p>./virtualenv /volume1/flexget/</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">进入flexget&#x2F;bin文件夹</span><br></pre></td></tr></table></figure>
+<p>cd /volume1/flexget/bin</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">启动virtualenv 环境</span><br></pre></td></tr></table></figure>
+<p>source activate</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">启动后在命令行左侧有标示 flexget</span><br><span class="line"></span><br><span class="line">- 安装Flexget</span><br></pre></td></tr></table></figure>
+<p>pip3.5 install flexget</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">安装完毕后bin文件夹里就有flexget文件了</span><br><span class="line"></span><br><span class="line">- 安装Flexget所需的transmissionrpc</span><br></pre></td></tr></table></figure>
+<p>pip3.5 install transmissionrpc</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">安装完毕退出virtualenv环境</span><br></pre></td></tr></table></figure>
+<p>deactivate</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">以后使用flexget命令就在&#x2F;volume1&#x2F;flexget&#x2F;bin&#x2F;flexget</span><br><span class="line"></span><br><span class="line"># Flexget的运行</span><br><span class="line"></span><br><span class="line">在flexget文件夹加入自己的配置文件config.yml。</span><br><span class="line"></span><br><span class="line">运行官方推荐加入服务的方式，但是我喜欢修改crontab的方法</span><br><span class="line"></span><br><span class="line">路径：&#x2F;etc&#x2F;crontab</span><br><span class="line"></span><br><span class="line">修改加入以下参数：</span><br><span class="line"></span><br><span class="line">&gt; *&#x2F;15	*	*	*	*	root	&#x2F;volume1&#x2F;flexget&#x2F;bin&#x2F;flexget execute</span><br><span class="line"></span><br><span class="line">意思是每隔15分钟运行，然后重启crontab服务</span><br></pre></td></tr></table></figure>
+<p>synoservice -restart crond</p>
+<pre><code>
+如果crontab失败直接用群晖的计划任务建立，也挺方便。
 
-<ul>
-<li>顺便创建一个easy_install的软链接，万一以后使用easy_install安装软件也方便了</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -sf easy_install-3.5 easy_install</span><br></pre></td></tr></table></figure>
+搞定！感谢原作者。
 
-<h2 id="virtualenv的方式安装flexget"><a href="#virtualenv的方式安装flexget" class="headerlink" title="virtualenv的方式安装flexget"></a>virtualenv的方式安装flexget</h2><p>以下命令都在目录/volume1/@appstore/py3k/usr/local/bin下</p>
-<ul>
-<li>安装virtualenv</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;pip3.5 install virtualenv</span><br></pre></td></tr></table></figure>
+以后有时间写写config.yml配置文件，官方有详细的说明：
 
-<ul>
-<li>创建Flexget的virtualenv环境，我是安装在/volume1目录下，可以共享，方便日志查看。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;virtualenv &#x2F;volume1&#x2F;flexget&#x2F;</span><br></pre></td></tr></table></figure>
+&lt;https://flexget.com/Configuration&gt;
 
-<p>进入flexget/bin文件夹</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;volume1&#x2F;flexget&#x2F;bin</span><br></pre></td></tr></table></figure>
+&lt;http://flexget.com/Plugins&gt;
 
-<p>启动virtualenv 环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source activate</span><br></pre></td></tr></table></figure>
 
-<p>启动后在命令行左侧有标示 flexget</p>
-<ul>
-<li>安装Flexget</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3.5 install flexget</span><br></pre></td></tr></table></figure>
-
-<p>安装完毕后bin文件夹里就有flexget文件了</p>
-<ul>
-<li>安装Flexget所需的transmissionrpc</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3.5 install transmissionrpc</span><br></pre></td></tr></table></figure>
-
-<p>安装完毕退出virtualenv环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
-
-<p>以后使用flexget命令就在/volume1/flexget/bin/flexget</p>
-<h1 id="Flexget的运行"><a href="#Flexget的运行" class="headerlink" title="Flexget的运行"></a>Flexget的运行</h1><p>在flexget文件夹加入自己的配置文件config.yml。</p>
-<p>运行官方推荐加入服务的方式，但是我喜欢修改crontab的方法</p>
-<p>路径：/etc/crontab</p>
-<p>修改加入以下参数：</p>
-<blockquote>
-<p>*/15    *    *    *    *    root    /volume1/flexget/bin/flexget execute</p>
-</blockquote>
-<p>意思是每隔15分钟运行，然后重启crontab服务</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">synoservice -restart crond</span><br></pre></td></tr></table></figure>
-
-<p>如果crontab失败直接用群晖的计划任务建立，也挺方便。</p>
-<p>搞定！感谢原作者。</p>
-<p>以后有时间写写config.yml配置文件，官方有详细的说明：</p>
-<p><a href="https://flexget.com/Configuration" target="_blank" rel="noopener">https://flexget.com/Configuration</a></p>
-<p><a href="http://flexget.com/Plugins" target="_blank" rel="noopener">http://flexget.com/Plugins</a></p>
-]]></content>
+</code></pre>]]></content>
       <categories>
         <category>NAS</category>
       </categories>
