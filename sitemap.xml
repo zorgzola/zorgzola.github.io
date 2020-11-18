@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-install-transmission-and-flexget/</loc>
+    <loc>https://blog.mrzorg.top/HTPC/2020-11-18-madvr/</loc>
     
-    <lastmod>2020-05-29T08:35:26.184Z</lastmod>
+    <lastmod>2020-11-18T06:46:22.757Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mrzorg.top/Kodi/2020-02-22-kodi-skin-aeon-mq-8-multi-mod-add-ons-settings/</loc>
+    
+    <lastmod>2020-11-18T01:08:50.931Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mrzorg.top/Kodi/2020-02-20-kodi-skin-aeon-mq-8-multi-mod-chinese-settings/</loc>
+    
+    <lastmod>2020-11-18T01:08:30.137Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.mrzorg.top/NAS/2019-04-23-synology-nas-build-hexo-blog/</loc>
     
-    <lastmod>2020-05-24T11:53:54.331Z</lastmod>
+    <lastmod>2020-11-18T01:07:51.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mrzorg.top/NAS/2019-05-01-synology-install-transmission-and-flexget/</loc>
+    
+    <lastmod>2020-05-29T08:35:26.184Z</lastmod>
     
   </url>
   
@@ -33,20 +54,6 @@
     <loc>https://blog.mrzorg.top/Hackintosh/2020-04-01-Intel-core-display-platformID-finishing.html/</loc>
     
     <lastmod>2020-04-01T16:17:55.123Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mrzorg.top/Kodi/2020-02-22-kodi-skin-aeon-mq-8-multi-mod-add-ons-settings/</loc>
-    
-    <lastmod>2020-02-22T09:36:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mrzorg.top/Kodi/2020-02-20-kodi-skin-aeon-mq-8-multi-mod-chinese-settings/</loc>
-    
-    <lastmod>2020-02-22T06:31:18.000Z</lastmod>
     
   </url>
   
