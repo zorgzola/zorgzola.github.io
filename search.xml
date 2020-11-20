@@ -32,7 +32,7 @@
 <p>到MPC-BE裡的選項&gt;視訊底下應該可以選擇madVR了</p>
 <p><img src="madVR_003.png" alt=""></p>
 <p>播放影片時，右鍵&gt;篩選器，底下選擇madVR可以打開madVR的設定頁，或是右下角的工具列madVR圖示上點右鍵並選擇”Edit madVR settings”，<font color=Chocolate>或是直接按Ctrl+S</font>，或是在外掛濾鏡裡加入madVR並點兩下都可以打開設定頁</p>
-<p><img src="madVR_004.png" alt=""></p>
+<p><img src="madVR_004.jpg" alt=""></p>
 <p><img src="madVR_005.png" alt=""></p>
 <p><img src="madVR_006.png" alt=""></p>
 <h1 id="madVR設置"><a href="#madVR設置" class="headerlink" title="madVR設置"></a>madVR設置</h1><p>打開設定頁，並將項目展開：</p>
@@ -75,7 +75,7 @@
 </ol>
 <p><img src="madVR_015.png" alt=""></p>
 <h3 id="HDR"><a href="#HDR" class="headerlink" title="HDR"></a>HDR</h3><p>到HDR這頁<br>如果你沒有觀看HDR(High Dynamic Range)影片的需求的話這邊設定可以不用去管它，<font color=Chocolate>它對於SDR(Standard Dynamic Range)的影片是沒有任何影響的，而我們目前觀看的絕大多數影片都是SDR的</font>，目前只有一些非常新的4K影片會採用HDR這項技術，HDR影片通常會是BT.2020色域、10bit色深。以下簡略解釋各選項</p>
-<p><img src="madVR_016.png" alt=""></p>
+<p><img src="madVR_017.png" alt=""></p>
 <ul>
 <li>“let madVR decide”，全部交給madVR自行判斷，如果螢幕支援HDR的話，madVR會送HDR 影片和metadata的訊號給螢幕(同第二項”passthrough HDR content to the display”)；如果螢幕不支援HDR的話，madVR會使用 pixel shader math把HDR影片轉成SDR訊號送出(同第三項”convert HDR content to SDR by using pixel shader math”，但效果等同第三項未勾選”restore details in compressed highlights”，轉換後細節損失比較多，故螢幕不支援HDR的話我建議直接選擇第三項)。</li>
 <li>“passthrough HDR content to the display”，<font color=Chocolate>將HDR內容和metadada不經處理直接送給螢幕，須注意選擇此選項螢幕必須完整支援HDR內容播放，螢幕不支援HDR這選項就沒有任何意義</font>。madVR在v0.91.11之後版本才能完整使用這個選項的功能，支援兩種API將影片的metadata傳送給電視去辨識。一種是NV或AMD卡專用的HDR API，必須搭配新的驅動，好處是win7、win8.1、win10皆可使用；另一種是win10內建的D3D11/DXGI APIs.，這個每家顯卡都可用，但只有win10下能用，播放時必須使用D3D11模式。(“calibration”設定裡有3DLUT檔的話會繞過)</li>
@@ -102,9 +102,9 @@
 <p>6.AMD的HDR API限制較多，只能在10bit D3D11輸出模式下使用，而且必須在全螢幕下才能使用，N卡的HDR API則無此限制。</p>
 <p>7.<font color=Chocolate>除非A卡或N卡的HDR API無法正常運作，不然非常不建議去開win10自身的HDR選項。</font></p>
 <h2 id="processing"><a href="#processing" class="headerlink" title="processing"></a>processing</h2><h3 id="deinterlacing"><a href="#deinterlacing" class="headerlink" title="deinterlacing"></a>deinterlacing</h3><p>到”deinterlacing”這頁，建議如圖設定：<br>這邊是關於是否啟動去交錯的一些判斷原則，我們讓madVR自己判斷，並選擇在懷疑時不啟動去交錯。<br>下方”only look at pixels in the frame center”這個選項只對film型式的交錯式(隔行掃描 interlaced)影片有影響，也就是說這選項在啟動madVR的film mode時才有作用(文後有解釋)<br>我們知道對於這類影片必須對其作IVTC讓它還原成24p(60i→24p)，但實際上我們有時候會發現錄了一部電視播放的電影或動畫下來，電視台常常在四邊打上跑馬燈或台標之類的東西，而這個跑馬燈或台標卻是video型式的interlaced訊號(真正的60i 無法IVTC)，因此我們要作IVTC時如果是對整個畫面的像素作偵測，遇到這種情形時就很容易產生誤判。因此勾選這個選項時就只會對畫面中央部分的像素作偵測，避開那些跑馬燈或台標可能出現的位置以免作IVTC時產生誤判，但缺點就是這樣偵測的效率較低，遇到動畫這類常常有靜止畫面的影片在偵測是哪一類pulldown時就會花比較久的時間。<font color=Chocolate>如果會看電視台播放的電影或動畫的話，建議勾選此選項，如果是看DVD原盤的話，則建議取消勾選。</font><br><font color=Chocolate>這選項對progressive的影片完全沒有影響，如果照字面理解為這選項不利於動畫的話那是錯誤的理解，因為很多動畫片源只要是藍光或是錄製下來壓製時做過IVTC的，都會是progressive而非interlaced。電視台錄製下來的原始TS檔或是DVD原盤才有可能是interlaced。</font></p>
-<p><img src="madVR_017.png" alt=""></p>
-<h3 id="zoom-control"><a href="#zoom-control" class="headerlink" title="zoom control"></a>zoom control</h3><p>接下來到zoom control這項，這邊是設定畫面縮放的一些控制條件，一般來說並不需要做任何設定，不過某些情形下這些選項是很有用的，這邊稍微解釋一下各個選項及其可能適用的範圍</p>
 <p><img src="madVR_018.png" alt=""></p>
+<h3 id="zoom-control"><a href="#zoom-control" class="headerlink" title="zoom control"></a>zoom control</h3><p>接下來到zoom control這項，這邊是設定畫面縮放的一些控制條件，一般來說並不需要做任何設定，不過某些情形下這些選項是很有用的，這邊稍微解釋一下各個選項及其可能適用的範圍</p>
+<p><img src="madVR_016.png" alt=""></p>
 <p>“disable scaling if image size changes by only”：設定片源跟目標解析度低於幾個像素時不執行縮放演算，而以添加黑邊代替</p>
 <p>“move subtitles”：移動字幕到畫面底部或是影片可視範圍內(搭配下面的偵測跟移除黑邊功能)</p>
 <p>“automatically detect hard coded black bars”：自動偵測影片內部的黑邊，這裡的黑邊，並不是指影片比例跟螢幕比例不一樣產生的那種黑邊，而是指<font color=Chocolate>影片編碼時就被包含在其中的黑邊</font>，這邊我舉兩個例子來說明。</p>
@@ -370,7 +370,7 @@
 <p>3D輸出目前僅限制在1080p23模式</p>
 <p><img src="madVR_077.png" alt=""></p>
 <h3 id="smooth-motion"><a href="#smooth-motion" class="headerlink" title="smooth motion"></a>smooth motion</h3><p>到”smooth motion”這頁</p>
-<p><img src="madVR_078.png" alt=""></p>
+<p><img src="madVR_078.jpg" alt=""></p>
 <p>這是madVR  v0.86.0加入的功能”smooth motion frame rate conversion”.，詳見官方論壇：<br><a href="http://forum.doom9.org/showthread.php?p=1616520#post1616520" target="_blank" rel="noopener">http://forum.doom9.org/showthread.php?p=1616520#post1616520</a></p>
 <p>這個功能相當好用，解決了幀率跟螢幕更新率不同步所產生的judder問題(詳細可參考我在reclock那篇所提到的內容)，開發者madshi提到這功能有兩大優點：</p>
 <p>1.能夠讓任何幀率去對應任何螢幕更新率，並保持影像的流暢<br>2.如果硬體能夠應付，在完整的播放中不會有任何的幀drop或repeat，且不需要依靠reclock來達   成。</p>
@@ -474,11 +474,11 @@
 <p>以下為所有的tag：</p>
 <p>tag “matrix=709|601|NTSC|PAL|YCgCo|240M|2020”<br>tag “primaries=709|SmpteC|EBU|sRGB|NTSC|PAL|470M|240M|170M|2020|DCI”<br>tag “levels=PC|TV|fullrange|limited|doubleExp|tripleExp”<br>tag “deint=On|Off|Video|Film”<br>tag “blacklevel=%value%”, value range [-50, +50]<br>tag “whitelevel=%value%”, value range [-50, +50]<br>tag “contrast=%value%”, value range [-100, +100]<br>tag “brightness=%value%”, value range [-100, +100]<br>tag “saturation=%value%”, value range [-100, +100]<br>tag “hue=%value%”, value range [-180, +180]<br>tag “frameRate=%value%”, e.g. 23.976, 24.000, 23, 24, …<br>tag “refreshRate=%value%”, e.g. 23.976, 24.000, 23, 24, …<br>tag “deband=off|low|medium|high”<br>tag “profile=’profile name’”<br>tag “dering(ing)=on|off|half|full”</p>
 <p>舉例來說，一個普通的檔案，開啟時會按照自動偵測的結果套用預設的設定。<br>以下以去交錯方法為例子來說明，雖然是原生24p的電影，但因為電視錄下來是60i的檔案，開啟時自動使用了顯卡硬體去交錯</p>
-<p><img src="madVR_099.jpg" alt=""></p>
-<p><img src="madVR_101.jpg" alt=""></p>
+<p><img src="madVR_099.png" alt=""></p>
+<p><img src="madVR_101.png" alt=""></p>
 <p>檔名中加入標籤”deint=Film”，於是開啟時自動使用了IVTC，不用再手動切換</p>
-<p><img src="madVR_100.jpg" alt=""></p>
-<p><img src="madVR_102.jpg" alt=""></p>
+<p><img src="madVR_100.png" alt=""></p>
+<p><img src="madVR_102.png" alt=""></p>
 <p>以上只是簡單的例子，基本上檔案需要特別設置的色域、色階、去交錯方法、亮度、對比、飽和度、色相等等，都可以透過這種加tag方式來減少手動調整的麻煩</p>
 <p>madVR Profile設置實戰<br><a href="http://lysandria1985.blogspot.tw/2014/01/2madvr-profile.html" target="_blank" rel="noopener">http://lysandria1985.blogspot.tw/2014/01/2madvr-profile.html</a></p>
 <p>這篇文章常年來隨著版本更新增加刪減不少內容，雖然我改完會大致看一遍但是難免會有所遺漏，如果你看了覺得哪裡有前後矛盾或是文意不順、文章內容跟現有madVR版本兜不上或是任何難以理解的地方，歡迎留言提問或指教，感謝！</p>
