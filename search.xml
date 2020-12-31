@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Youtube下载工具youtube-dl教程</title>
+    <url>/uncategorized/2020-12-31-youtube-dl-install-use/</url>
+    <content><![CDATA[<p>简单介绍youtube-dl的下载和使用。</p>
+<a id="more"></a>
+
+<h1 id="使用环境"><a href="#使用环境" class="headerlink" title="使用环境"></a>使用环境</h1><p><code>youtube-dl</code> 是一款采用 <code>Python</code> 编写的免费、开源、命令行程序，可一次下载单个视频、多个视频或整个播放列表，且同时支持 GNU/Linux、macOS 和 Microsoft Windows 这三大主流操作系统平台。</p>
+<p>youtube-dl需要Python 版本 2.6, 2.7, or 3.2+，windows不用安装，因为Python已嵌入二进制文件中。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><h2 id="针对GNU-Linux、macOS系统"><a href="#针对GNU-Linux、macOS系统" class="headerlink" title="针对GNU/Linux、macOS系统"></a>针对GNU/Linux、macOS系统</h2><p>官方推荐的 Youtube-dl 安装方式非常简单，可以直接下载到<code>PATH</code>路径中，即可执行开始使用，或者下载到其他自己喜欢的目录里执行，下载通过命令行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo curl -L https:&#x2F;&#x2F;yt-dl.org&#x2F;downloads&#x2F;latest&#x2F;youtube-dl -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;youtube-dl</span><br><span class="line">sudo chmod a+rx &#x2F;usr&#x2F;local&#x2F;bin&#x2F;youtube-dl</span><br></pre></td></tr></table></figure>
+
+<p>如果没有curl，也可以用wget：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;yt-dl.org&#x2F;downloads&#x2F;latest&#x2F;youtube-dl -O &#x2F;usr&#x2F;local&#x2F;bin&#x2F;youtube-dl</span><br><span class="line">sudo chmod a+rx &#x2F;usr&#x2F;local&#x2F;bin&#x2F;youtube-dl</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用pip：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo pip install --upgrade youtube_dl</span><br></pre></td></tr></table></figure>
+
+<p>除了直接从官方下载以外，很多主流 Linux 发行版本的官方存储库中都收录了 youtube-dl，例如：</p>
+<ul>
+<li>Arch Linux <code>sudo pacman -S youtube-dl</code></li>
+<li>Debian 或 Ubuntu <code>sudo apt install youtube-dl</code></li>
+<li>Fedora <code>sudo dnf install youtube-dl</code></li>
+</ul>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>win就比较简单下载exe文件就行：</p>
+<p><a href="http://ytdl-org.github.io/youtube-dl/download.html" target="_blank" rel="noopener">http://ytdl-org.github.io/youtube-dl/download.html</a></p>
+<h1 id="常用下载命令"><a href="#常用下载命令" class="headerlink" title="常用下载命令"></a>常用下载命令</h1><ul>
+<li><p>youtube-dl后面添加视频地址就行，或者包含多个视频的视频列表网址：</p>
+<p><code>youtube-dl &quot;https://www.youtube.com/watch?v=yHafN0M2kl0&quot;</code></p>
+<p>下载多个不同的视频，用空格将多个网址分隔开就可以。</p>
+</li>
+<li><p>按质量下载</p>
+<p><code>youtube-dl -f best &quot;https://www.youtube.com/watch?v=yHafN0M2kl0&quot;</code></p>
+<p><code>-f</code>后面输入相应的质量代码：</p>
+<p><code>best</code> 选择最佳质量的音/视频文件<br><code>worst</code> 选择质量最差的格式（视频和音频）<br><code>bestvideo</code> 选择最佳质量的仅视频格式（例如DASH视频），可能无法使用。<br><code>worstvideo</code> 选择质量最差的纯视频格式，可能无法使用。<br><code>bestaudio</code> 选择最优质的音频格式，可能无法使用。<br><code>worstaudio</code> 选择质量最差的音频格式，可能无法使用。</p>
+<p>只下载音频：</p>
+<p><code>youtube-dl -f bestaudio &quot;https://www.youtube.com/watch?v=yHafN0M2kl0&quot;</code></p>
+<p>也可组合：</p>
+<p><code>youtube-dl -f bestvideo+bestaudio &quot;https://www.youtube.com/watch?v=yHafN0M2kl0&quot;</code></p>
+</li>
+<li><p>下载所需不同质量的视频和音频文件</p>
+<p>先列出视频包含哪些格式：</p>
+<p><code>youtube-dl --list-formats &quot;https://www.youtube.com/watch?v=yHafN0M2kl0&quot;</code></p>
+<p>或者简写命令：<code>youtube-dl -F</code></p>
+<p>就会得到有数字标识的名称</p>
+<p><img src="youtube-dl-F.png" alt=""></p>
+<p>想下载哪个就输入前面的数字：</p>
+<p><code>youtube-dl -f 299 &quot;https://www.youtube.com/watch?v=yHafN0M2kl0&quot;</code></p>
+</li>
+</ul>
+<p>还有很多下载情况，详见<a href="https://github.com/ytdl-org/youtube-dl/blob/master/README.md#readme" target="_blank" rel="noopener">官网</a>。</p>
+]]></content>
+      <tags>
+        <tag>Youtube</tag>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20201118-madVR详解(转载自万年冷冻库)</title>
     <url>/HTPC/2020-11-18-madvr/</url>
     <content><![CDATA[<p>转载自<a href="http://lysandria1985.blogspot.com/2013/01/3-madvr.html" target="_blank" rel="noopener">系列之3─最強渲染器-madVR</a>，作者： <a href="https://www.blogger.com/profile/00513318288992936483" target="_blank" rel="noopener">暮星</a> </p>
@@ -3418,7 +3474,6 @@
       <tags>
         <tag>群晖</tag>
         <tag>Hexo</tag>
-        <tag>NAS</tag>
       </tags>
   </entry>
 </search>
