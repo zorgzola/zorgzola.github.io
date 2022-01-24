@@ -3431,7 +3431,7 @@
 </ol>
 <p>安装位置我是默认在/volume1，后面涉及命令的相关路径可根据自己的位置做修改。</p>
 <p>ps. 可更新node和npm版本，遇到相关问题或需要可更新，命令如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm cache clean -f #清除npm缓存非必须</span><br><span class="line">npm install -g n #安装n模块</span><br><span class="line">cd cd &#x2F;volume1&#x2F;@appstore&#x2F;Node.js_v8&#x2F;usr&#x2F;local&#x2F;bin&#x2F; #找到n命令位置</span><br><span class="line">.&#x2F;n stable #升级node.js到最新稳定版</span><br><span class="line">npm install -g npm #再更新npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm cache clean -f #清除npm缓存非必须</span><br><span class="line">npm install -g n #安装n模块</span><br><span class="line">cd &#x2F;volume1&#x2F;@appstore&#x2F;Node.js_v8&#x2F;usr&#x2F;local&#x2F;bin&#x2F; #找到n命令位置</span><br><span class="line">.&#x2F;n stable #升级node.js到最新稳定版</span><br><span class="line">npm install -g npm #再更新npm</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 
 
 
